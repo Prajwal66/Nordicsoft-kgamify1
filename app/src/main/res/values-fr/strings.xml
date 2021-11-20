@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kgamify</string>
+    <string name="sign_in">Sidentifier</string>
+    <string name="enter_phone_number">Entrez le numéro de téléphone</string>
+    <string name="send_otp">Envoyer OTP</string>
+    <string name="skip">Sauter</string>
+    <string name="language">français</string>
+    <string name="verification_code">Le code de vérification</string>
+    <string name="please_type_verification_code_sent_to">Veuillez saisir le code de vérification envoyé à</string>
+    <string name="valid_for_09_59">Valable pour 09:59</string>
+    <string name="resend_otp">Renvoyer OTP</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kgamify</string>
+    <string name="sign_in">साइन इन करें</string>
+    <string name="enter_phone_number">फोन नंबर दर्ज</string>
+    <string name="send_otp">OTP भेजें</string>
+    <string name="skip">छोड़ें</string>
+    <string name="language">हिंदी</string>
+    <string name="verification_code">पुष्टि संख्या</string>
+    <string name="please_type_verification_code_sent_to">कृपया इस पते पर भेजा गया सत्यापन कोड टाइप करें</string>
+    <string name="valid_for_09_59">09:59 . के लिए मान्य</string>
+    <string name="resend_otp">ओटीपी पुनः भेजें</string>
+</resources>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".Categories">
+
+
+    <ImageView
+        android:id="@+id/sidemenu"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:src="@drawable/sidemenu"
+        android:layout_marginTop="15dp"></ImageView>
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/box2"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Category"
+        android:textAlignment="textStart"></SearchView>
+
+    <ImageView
+        android:id="@+id/wallet"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="19dp"
+        android:onClick="ShowPopupwallet"
+        android:src="@drawable/ic_wallet"></ImageView>
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/search"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="Select Category"
+        android:textColor="#FF8200"
+        android:textSize="25dp"></TextView>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/category"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="370dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="290dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/aerospace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:text="Aeronautics / Aerospace"
+                        android:textAlignment="textStart"
+                        android:textColor="#43413F"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:text="12 Championships"
+                        android:textAlignment="textStart"
+                        android:textColor="#6A6A6A"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="330dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:onClick="showmyinfo"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/drop"
+                        android:text="^"
+                        android:textSize="40dp"
+                        android:textColor="#48000000"></TextView>
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expand"
+                android:layout_below="@+id/linear"
+                android:layout_width="370dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="6dp"
+                app:ael_expanded ="false"
+                app:ael_duration ="100"
+                app:ael_interpolator="bounce"
+                app:ael_orientation ="vertical"
+                android:background="@drawable/borader">
+
+                <TextView
+                    android:id="@+id/categorytype"
+                    android:layout_width="370dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/borader"></TextView>
+
+
+                <TextView
+                    android:id="@+id/champs"
+                    android:layout_width="300dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Master Python for Beginners - Syntax and Theory"
+                    android:textColor="#434343"
+                    android:textSize="20dp"></TextView>
+
+                <ImageView
+                    android:onClick="ShowPopupinfo"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="325dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@drawable/ic_more_info"></ImageView>
+
+                <ImageView
+                    android:id="@+id/person1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_participent"
+                    android:layout_below="@id/champs"
+                    android:layout_marginLeft="57dp"
+                    android:layout_marginTop="7dp"></ImageView>
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="23dp"
+                    android:text="79 Participants"
+                    android:layout_below="@id/person1"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#6A6A6A"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    ></TextView>
+
+                <ImageView
+                    android:id="@+id/coin1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/champs"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/kcoin"></ImageView>
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="23dp"
+                    android:text="1000 Total Coins"
+                    android:layout_below="@id/coin1"
+                    android:layout_marginLeft="230dp"
+                    android:textColor="#6A6A6A"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/quali"
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/person1"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Qualification: Any"
+                    android:textColor="#434343"
+                    android:textSize="16dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/starttime"
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/quali"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_light"
+                    android:text="Start Time: 30 May 2020 | 00:00 IST"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/endtime"
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/starttime"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_light"
+                    android:text="End Time: 30 May 2020 | 00:00 IST"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16dp"></TextView>
+
+
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expand2"
+                android:layout_width="370dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="6dp"
+                app:ael_expanded ="false"
+                app:ael_duration ="100"
+                app:ael_interpolator="bounce"
+                app:ael_orientation ="vertical"
+                android:background="@drawable/borader">
+
+                <TextView
+                    android:id="@+id/categorytype2"
+                    android:layout_width="370dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/borader"></TextView>
+
+
+                <TextView
+                    android:id="@+id/champs1"
+                    android:layout_width="300dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Master Python for Beginners - Syntax and Theory"
+                    android:textColor="#434343"
+                    android:textSize="20dp"></TextView>
+
+                <ImageView
+
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="325dp"
+                    android:src="@drawable/ic_more_info"
+                    android:layout_marginTop="9dp"></ImageView>
+
+                <ImageView
+                    android:id="@+id/person2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_participent"
+                    android:layout_below="@id/champs1"
+                    android:layout_marginLeft="57dp"
+                    android:layout_marginTop="7dp"></ImageView>
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="23dp"
+                    android:text="79 Participants"
+                    android:layout_below="@id/person2"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#6A6A6A"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    ></TextView>
+
+                <ImageView
+                    android:id="@+id/coin2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/champs1"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/kcoin"></ImageView>
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="23dp"
+                    android:text="1000 Total Coins"
+                    android:layout_below="@id/coin2"
+                    android:layout_marginLeft="230dp"
+                    android:textColor="#6A6A6A"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/qualif"
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/person2"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Qualification: Any"
+                    android:textColor="#434343"
+                    android:textSize="16dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/starttime1"
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/qualif"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_light"
+                    android:text="Start Time: 30 May 2020 | 00:00 IST"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/endtime1"
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/starttime1"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_light"
+                    android:text="End Time: 30 May 2020 | 00:00 IST"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16dp"></TextView>
+
+
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expand3"
+                android:layout_width="370dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="6dp"
+                app:ael_expanded ="false"
+                app:ael_duration ="100"
+                app:ael_interpolator="bounce"
+                app:ael_orientation ="vertical"
+                android:background="@drawable/borader">
+
+                <TextView
+                    android:id="@+id/categorytype3"
+                    android:layout_width="370dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/borader"></TextView>
+
+
+                <TextView
+                    android:id="@+id/champs2"
+                    android:layout_width="300dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Master Python for Beginners - Syntax and Theory"
+                    android:textColor="#434343"
+                    android:textSize="20dp"></TextView>
+
+                <ImageView
+
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="325dp"
+                    android:src="@drawable/ic_more_info"
+                    android:layout_marginTop="9dp"></ImageView>
+
+                <ImageView
+                    android:id="@+id/person3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_participent"
+                    android:layout_below="@id/champs2"
+                    android:layout_marginLeft="57dp"
+                    android:layout_marginTop="7dp"></ImageView>
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="23dp"
+                    android:text="79 Participants"
+                    android:layout_below="@id/person3"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#6A6A6A"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    ></TextView>
+
+                <ImageView
+                    android:id="@+id/coin3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/champs2"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/kcoin"></ImageView>
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="23dp"
+                    android:text="1000 Total Coins"
+                    android:layout_below="@id/coin3"
+                    android:layout_marginLeft="230dp"
+                    android:textColor="#6A6A6A"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/qualifc"
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/person3"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Qualification: Any"
+                    android:textColor="#434343"
+                    android:textSize="16dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/starttime2"
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/qualifc"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_light"
+                    android:text="Start Time: 30 May 2020 | 00:00 IST"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/endtime2"
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/starttime2"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_light"
+                    android:text="End Time: 30 May 2020 | 00:00 IST"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16dp"></TextView>
+
+
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

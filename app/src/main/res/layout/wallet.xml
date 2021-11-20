@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="100dp"
+    android:layout_gravity="right"
+    android:gravity="top"
+    android:background="@color/white"
+    android:layout_marginRight="20dp">
+
+
+    <ImageView
+        android:id="@+id/walletcoin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/kcoin"
+        ></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12345"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:layout_below="@id/walletcoin"
+        android:layout_marginTop="6dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="50dp"
+        android:textColor="#FF8200"
+        ></TextView>
+
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Kgamify</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="skip">Skip</string>
+    <string name="language">English</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="please_type_verification_code_sent_to">Please type verification code sent to</string>
+    <string name="valid_for_09_59">Valid for 09:59</string>
+    <string name="resend_otp">Resend OTP</string>
+</resources>

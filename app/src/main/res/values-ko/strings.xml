@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kgamify</string>
+    <string name="sign_in">로그인</string>
+    <string name="enter_phone_number">전화번호 입력</string>
+    <string name="send_otp">OTP 보내기</string>
+    <string name="skip">건너 뛰다</string>
+    <string name="language">한국인</string>
+    <string name="verification_code">확인 코드</string>
+    <string name="please_type_verification_code_sent_to">다음 주소로 전송된 인증 코드를 입력하세요.</string>
+    <string name="valid_for_09_59">09:59에 유효</string>
+    <string name="resend_otp">OTP 재전송</string>
+</resources>
