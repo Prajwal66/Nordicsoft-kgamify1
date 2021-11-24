@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".GameMode">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <ImageView
         android:id="@+id/back"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="119dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.04"
@@ -27,31 +24,32 @@
         android:fontFamily="@font/roboto_condensed_regular"
         android:text="Select Game Mode"
         android:textColor="@color/heading_orange"
-        android:textSize="25dp"
+        android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <ImageView
-        android:onClick="ShowPopup2"
         android:id="@+id/imageView2"
-        android:layout_width="34dp"
-        android:layout_height="25dp"
+        android:layout_width="69dp"
+        android:layout_height="93dp"
+        android:onClick="ShowPopup2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.653"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024"
+        app:layout_constraintVertical_bias="0.057"
         app:srcCompat="@drawable/ic_more_info" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="260dp"
+        android:layout_width="700dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:fontFamily="@font/roboto_condensed_regular"
         android:textColor="@color/category"
         android:textSize="18sp"
@@ -64,14 +62,14 @@
 
 
     <TextView
-        android:onClick="ShowPopupupdate"
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
+        android:onClick="ShowPopupupdate"
         android:text="Update"
         android:textColor="#062CFF"
-        android:textSize="20dp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.04"
@@ -83,6 +81,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -109,20 +108,21 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/Quickhit"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     android:onClick="ShowPopup"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
 
                     <LinearLayout
-                        android:layout_width="107dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:layout_marginLeft="10dp"
@@ -132,8 +132,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="128dp"
+                            android:layout_height="127dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_quick_hit" />
 
@@ -145,7 +145,7 @@
                             android:text="Quick Hit"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -156,7 +156,7 @@
                             android:text="Time Limit and Random Questions "
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 
@@ -164,13 +164,14 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/selectgift"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     android:onClick="ShowPopup1"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
@@ -187,8 +188,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="128dp"
+                            android:layout_height="127dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_select_gift" />
 
@@ -200,7 +201,7 @@
                             android:text="Select Gift Play"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="18sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -211,20 +212,21 @@
                             android:text="Know the gift you’ll win,before you play"
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -240,8 +242,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="175dp"
+                            android:layout_height="133dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_play_win" />
 
@@ -253,7 +255,7 @@
                             android:text="Play Win Gift"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -264,20 +266,21 @@
                             android:text="  Play first to know your gift "
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -293,8 +296,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="128dp"
+                            android:layout_height="127dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_have_duel" />
 
@@ -306,7 +309,7 @@
                             android:text="Have a Duel"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -317,20 +320,21 @@
                             android:text="Give or accept challenges from others"
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -346,8 +350,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="128dp"
+                            android:layout_height="127dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_be_inleagues" />
 
@@ -359,7 +363,7 @@
                             android:text="Be in League"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -370,20 +374,21 @@
                             android:text="Gifts,Prizes and Medals"
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -399,8 +404,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="128dp"
+                            android:layout_height="127dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_snap_content" />
 
@@ -412,7 +417,7 @@
                             android:text="Snap Contest"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -423,20 +428,21 @@
                             android:text="Play with friends or randoms"
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="350dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -452,8 +458,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="128dp"
+                            android:layout_height="127dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/ic_play_for_cause" />
 
@@ -465,7 +471,7 @@
                             android:text="Play for Cause"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="48sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -476,7 +482,7 @@
                             android:text="  Win and Donate your Gift"
                             android:textAlignment="center"
                             android:textColor="@color/category"
-                            android:textSize="12sp" />
+                            android:textSize="24sp" />
 
                     </LinearLayout>
 

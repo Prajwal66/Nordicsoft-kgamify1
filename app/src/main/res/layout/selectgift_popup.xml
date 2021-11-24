@@ -1,140 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
     android:layout_height="410dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     android:layout_gravity="center">
 
     <TextView
-        android:id="@+id/txtclose1"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:textColor="@color/black"
-        android:text="X"
-        android:textStyle="bold"
-        android:layout_marginLeft="300dp"
-        android:gravity="center"
-        ></TextView>
-
-    <TextView
         android:id="@+id/txt"
-        android:layout_width="250dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
         android:text="Select Gift and Play"
-        android:layout_marginLeft="10dp"
-        android:textColor="#FF8200"
+        android:textColor="@color/heading_orange"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998"></TextView>
+
+    <TextView
+        android:id="@+id/txtclose1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:gravity="center"
+        android:text="X"
+        android:textColor="@color/black"
         android:textSize="25sp"
-        android:textStyle="bold"></TextView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toEndOf="@+id/txt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" />
 
     <ScrollView
         android:id="@+id/scroll2"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="270dp"
-        android:layout_below="@id/txt"
-        android:layout_marginTop="8dp">
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt"
+        app:layout_constraintVertical_bias="0.13999999">
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="270dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/gamerule1"
-                android:layout_width="200dp"
-                android:layout_height="35dp"
-                android:layout_below="@id/txt"
-                android:layout_marginLeft="13dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:text="Game Rules"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:textStyle="bold"></TextView>
 
-            <TextView
-                android:id="@+id/rule3"
-                android:layout_width="300dp"
-                android:layout_height="27dp"
-                android:layout_below="@id/gamerule1"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:text="1. The Quiz will have 200 questions."
-                android:textColor="@color/black"
-                android:textSize="17sp"></TextView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp">
 
-            <TextView
-                android:id="@+id/rule4"
-                android:layout_width="340dp"
-                android:layout_height="45dp"
-                android:text="2. User can first select any gift from categories, and play game."
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:layout_below="@id/rule3"
-                android:layout_marginTop="1dp"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                ></TextView>
+                <TextView
+                    android:id="@+id/gamerule1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Game Rules"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold"></TextView>
 
-            <TextView
-                android:id="@+id/rule5"
-                android:layout_width="300dp"
-                android:layout_height="45dp"
-                android:text="3. By passing the winning condition, users stands a chance to get an the selected gift."
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:layout_below="@id/rule4"
-                android:layout_marginTop="1dp"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                ></TextView>
+                <TextView
+                    android:id="@+id/rule3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/gamerule1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="1. The Quiz will have 200 questions."
+                    android:textColor="@color/black"
+                    android:textSize="17sp"></TextView>
 
-            <TextView
-                android:id="@+id/note1"
-                android:layout_width="200dp"
-                android:layout_height="35dp"
-                android:text="Important Note"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:layout_below="@id/rule5"
-                android:layout_marginLeft="13dp"
-                android:layout_marginTop="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                ></TextView>
+                <TextView
+                    android:id="@+id/rule4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rule3"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="2. User can first select any gift from categories, and play game."
+                    android:textColor="@color/black"
+                    android:textSize="17sp"></TextView>
 
-            <TextView
-                android:id="@+id/imp2"
-                android:layout_width="300dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/note1"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:text="There is an E- Option button available, it is to be used only in case if the given question is wrong. "
-                android:textColor="@color/black"
-                android:textSize="17sp"></TextView>
+                <TextView
+                    android:id="@+id/rule5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rule4"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="3. By passing the winning condition, users stands a chance to get an the selected gift."
+                    android:textColor="@color/black"
+                    android:textSize="17sp"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/note1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rule5"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Important Note"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/imp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/note1"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="There is an E- Option button available, it is to be used only in case if the given question is wrong. "
+                    android:textColor="@color/black"
+                    android:textSize="17sp"></TextView>
+            </LinearLayout>
 
 
         </LinearLayout>
-
     </ScrollView>
-
 
     <Button
         android:id="@+id/btnstart2"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/scroll2"
-        android:text="Start"
-        android:layout_marginTop="7dp"
-        android:textSize="20sp"
-        android:fontFamily="@font/roboto_condensed_regular"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
         android:layout_centerHorizontal="true"
-        ></Button>
+        android:background="@color/btn_orange"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Start"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll2"></Button>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
