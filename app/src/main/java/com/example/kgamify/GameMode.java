@@ -12,10 +12,13 @@ import android.widget.TextView;
 
 public class GameMode extends AppCompatActivity {
 
+
     ImageView back;
     Dialog myDialog;  //quickhit popup (showpopup)
     Dialog myDialog1; //select gift and play popup (showpopup1)
     Dialog myDialog2;   //info popup (showpopup2)
+    Dialog update;    //update popup
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +26,13 @@ public class GameMode extends AppCompatActivity {
         setContentView(R.layout.activity_game_mode);
         getSupportActionBar().hide(); //Code to remove Action Bar
 
+
+
         myDialog = new Dialog(this);
         myDialog1 =new Dialog(this);
         myDialog2 = new Dialog(this);
+        update= new Dialog(this);
+
 
         back =(ImageView) findViewById(R.id.back);
 
@@ -38,8 +45,30 @@ public class GameMode extends AppCompatActivity {
         });
 
 
+
     }
 
+    public void ShowPopupupdate(View v){
+        TextView cancel;
+        Button btnupdate;
+
+        update.setContentView(R.layout.update_popup);
+        cancel =(TextView) update.findViewById(R.id.cancel);
+        btnupdate =(Button) update.findViewById(R.id.btn_update);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                update.dismiss();
+            }
+        });
+        update.show();
+
+
+
+    }
+
+    //quickhit popup
     public void ShowPopup(View v){
         TextView txtclose;
         Button btnstart1;
@@ -67,8 +96,7 @@ public class GameMode extends AppCompatActivity {
 
     }
 
-
-
+    //select gift and play popup
     public void ShowPopup1(View v) {
         TextView txtclose1;
         Button btnstart2;
@@ -93,8 +121,7 @@ public class GameMode extends AppCompatActivity {
         });
     }
 
-
-
+    //info popup
     public void ShowPopup2(View v){
         TextView txtclose2;
 
@@ -108,6 +135,7 @@ public class GameMode extends AppCompatActivity {
         });
         myDialog2.show();
     }
+
 
 
 }

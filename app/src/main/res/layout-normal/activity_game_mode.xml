@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".GameMode">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <ImageView
@@ -36,10 +33,10 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <ImageView
-        android:onClick="ShowPopup2"
         android:id="@+id/imageView2"
-        android:layout_width="34dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="28dp"
+        android:onClick="ShowPopup2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.76"
@@ -145,7 +142,7 @@
                             android:text="Quick Hit"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -200,7 +197,7 @@
                             android:text="Select Gift Play"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -253,7 +250,7 @@
                             android:text="Play Win Gift"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -306,7 +303,7 @@
                             android:text="Have a Duel"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -359,7 +356,7 @@
                             android:text="Be in League"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -412,7 +409,7 @@
                             android:text="Snap Contest"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -465,7 +462,7 @@
                             android:text="Play for Cause"
                             android:textAlignment="center"
                             android:textColor="@color/heading_orange"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -506,5 +503,4 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="20dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

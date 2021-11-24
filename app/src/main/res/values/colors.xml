@@ -11,4 +11,7 @@
     <color name="btn_orange">#FF8200</color>
     <color name="status_bar_orange">#FF8200</color>
     <color name="otp_background">#FBEFE4</color>
+    <color name="category">#43413F</color>
+    <color name="subcategory">#6A6A6A</color>
+    <color name="btnupdate">#455BD6</color>
 </resources>

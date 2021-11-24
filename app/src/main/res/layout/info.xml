@@ -1,132 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
     android:layout_height="600dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="Master Python for Beginners - Syntax and Theory"
+        android:textColor="@color/category"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" />
 
     <TextView
         android:id="@+id/txtclose2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:textColor="@color/black"
-        android:text="X"
-        android:textStyle="bold"
-        android:layout_marginLeft="300dp"
-        android:gravity="center"
-        ></TextView>
-
-    <TextView
-        android:id="@+id/champ"
-        android:layout_width="300dp"
-        android:layout_height="57dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
-        android:text="Master Python for Beginners - Syntax and Theory"
-        android:textColor="#434343"
-        android:textSize="22dp"></TextView>
+        android:gravity="center"
+        android:text="X"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
 
     <ImageView
         android:id="@+id/person"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="54dp"
+        android:layout_height="44dp"
         android:src="@drawable/ic_participent"
-        android:layout_below="@id/champ"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="7dp"></ImageView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.01999998"></ImageView>
 
     <TextView
         android:id="@+id/part"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:text="79 Participants"
-        android:layout_below="@id/person"
-        android:layout_marginLeft="43dp"
-        android:textColor="#6A6A6A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
-        ></TextView>
+        android:text="0 Participants"
+        android:textColor="@color/subcategory"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/person"
+        app:layout_constraintVertical_bias="0.02"></TextView>
 
     <ImageView
         android:id="@+id/coin"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/champ"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="7dp"
-        android:src="@drawable/kcoin"></ImageView>
+        android:layout_width="56dp"
+        android:layout_height="44dp"
+        android:src="@drawable/kcoin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.019"></ImageView>
 
     <TextView
         android:id="@+id/kcoin"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:text="1000 Total Coins"
-        android:layout_below="@id/coin"
-        android:layout_marginLeft="220dp"
-        android:textColor="#6A6A6A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/roboto_condensed_regular"
-        ></TextView>
-
-
+        android:text="1000 Total Coins"
+        android:textColor="@color/subcategory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coin"
+        app:layout_constraintVertical_bias="0.023"
+        android:textSize="15sp"></TextView>
 
     <ScrollView
-        android:id="@+id/scroll2"
-        android:layout_width="350dp"
-        android:layout_height="480dp"
-        android:layout_below="@id/part"
-        android:layout_marginTop="2dp">
-
+        android:id="@+id/scroll3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/part"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="480dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="200dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/person"
-                android:layout_marginLeft="13dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:text="Description"
                 android:textColor="@color/black"
-                android:textSize="23sp"
+                android:textSize="22sp"
                 android:textStyle="bold"></TextView>
 
             <TextView
                 android:id="@+id/desp"
-                android:layout_width="320dp"
-                android:layout_height="170dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/description"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:fontFamily="@font/roboto_condensed_light"
-                android:text="This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned."
-                android:textColor="#6A6A6A"
-                android:textSize="17sp"
-                ></TextView>
-
-
-            <TextView
-                android:id="@+id/gift"
-                android:layout_width="320dp"
-                android:layout_height="400dp"
-                android:layout_below="@id/desp"
-                android:layout_marginLeft="13dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:text="This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned."
-                android:textColor="#6A6A6A"
+                android:text="This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that.The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that.The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned.This paragraph will contain detailed description about the championship and what is the contents of that. The number of levels and number of coins to be earned."
+                android:textColor="@color/subcategory"
                 android:textSize="17sp"></TextView>
 
 
-
         </LinearLayout>
-
     </ScrollView>
 
 
-</RelativeLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
