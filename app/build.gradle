@@ -43,4 +43,15 @@ dependencies {
     implementation 'com.hbb20:ccp:2.5.4' //this is the library for country code picker
 
 
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'            //library require for Api integration
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'                   //library require for Api integration
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'          //library require for Api integration
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'             //library require for Api integration
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'                    //library require for Api integration
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'                       //library require for Api integration
+
+    implementation 'com.google.android.gms:play-services-location:17.0.0'    //library require for getting GPS location
+
+
 }
