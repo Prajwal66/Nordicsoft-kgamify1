@@ -10,4 +10,5 @@
     <string name="please_type_verification_code_sent_to">다음 주소로 전송된 인증 코드를 입력하세요.</string>
     <string name="valid_for_09_59">09:59에 유효</string>
     <string name="resend_otp">OTP 재전송</string>
+    <string name="select_category">select_category</string>
 </resources>
