@@ -10,4 +10,5 @@
     <string name="please_type_verification_code_sent_to">कृपया इस पते पर भेजा गया सत्यापन कोड टाइप करें</string>
     <string name="valid_for_09_59">09:59 . के लिए मान्य</string>
     <string name="resend_otp">ओटीपी पुनः भेजें</string>
+    <string name="select_category">श्रेणी का चयन करें</string>
 </resources>
