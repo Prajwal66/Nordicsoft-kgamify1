@@ -2,6 +2,7 @@ package com.example.kgamify;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
@@ -10,12 +11,17 @@ import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+import java.util.List;
+
+import io.reactivex.disposables.CompositeDisposable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Categories extends AppCompatActivity {
 
@@ -24,8 +30,18 @@ public class Categories extends AppCompatActivity {
     LinearLayout hiddenView, category1;
     CardView cardView;
     Dialog info;
+    TextView tv_cat_name,tv_champ_name,tv_champ_start_time;
 
-    RecyclerView recyclerView,recyleview_champoin;
+
+    //Api Integration Variables
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
+    Api api2,api3;
+    List<Backend_Category> category_arr;
+    List<Backend_Championship> champ_arr;
+    String category_name,champ_name,champ_discription;
+
+
+    RecyclerView recycler_view_1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +51,17 @@ public class Categories extends AppCompatActivity {
 
         info = new Dialog(this);    //info popup
 
-        cardView = findViewById(R.id.card1);
-        arrow = findViewById(R.id.expand_more);
-     //   hiddenView = findViewById(R.id.hidden_view);
-        category1 = findViewById(R.id.category1);
-        recyclerView=(RecyclerView) findViewById(R.id.recyleview);
-        recyleview_champoin=(RecyclerView) findViewById(R.id.recyleview_champoin);
+        initialize();
+        getCategoriesFromApi();
+
+        recycler_view_1.setLayoutManager(new LinearLayoutManager(this));
 
 
 
 
 
-        arrow.setOnClickListener(new View.OnClickListener() {
+
+      /*  arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -82,14 +97,55 @@ public class Categories extends AppCompatActivity {
                 Intent i= new Intent(Categories.this,GameMode.class);
                 startActivity(i);
             }
+        });*/
+
+
+
+    }
+
+    private void getCategoriesFromApi() {
+
+        api2=RetrofitInstance.getRetrofit().create(Api.class);
+        Call<Backend_CategoryWrapper> call=api2.getBackend_categories();
+
+        call.enqueue(new Callback<Backend_CategoryWrapper>() {
+            @Override
+            public void onResponse(Call<Backend_CategoryWrapper> call, Response<Backend_CategoryWrapper> response) {
+
+                category_arr=response.body().getBackend_categories();
+                int m=category_arr.size();
+
+                recycler_view_1.setAdapter(new myAdapter(category_arr));
+            }
+
+            @Override
+            public void onFailure(Call<Backend_CategoryWrapper> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            }
         });
 
 
 
     }
 
+    private void initialize() {
+//card1
+        cardView = findViewById(R.id.card1);
+        arrow = findViewById(R.id.img_expand_more);
+        category1 = findViewById(R.id.category1);
+
+
+
+        tv_cat_name=(TextView)findViewById(R.id.tv_cat_name);
+        tv_champ_name=(TextView)findViewById(R.id.tv_champ_name);
+        tv_champ_start_time=(TextView)findViewById(R.id.tv_champ_start_time);
+
+        recycler_view_1=(RecyclerView) findViewById(R.id.recycler_view_1);
+
+    }
+
     //info popup
-    public void ShowPopupinfo(View v){
+  /*  public void ShowPopupinfo(View v){
         TextView txtclose2;
 
         info.setContentView(R.layout.info);
@@ -101,7 +157,7 @@ public class Categories extends AppCompatActivity {
             }
         });
         info.show();
-    }
+    }*/
 
 
 

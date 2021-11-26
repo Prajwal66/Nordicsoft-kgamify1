@@ -28,7 +28,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/champs"
+                android:id="@+id/tv_champ_name"
                 android:layout_width="600dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
@@ -46,7 +46,7 @@
                     android:id="@+id/person1"
                     android:layout_width="90dp"
                     android:layout_height="70dp"
-                    android:layout_below="@id/champs"
+                    android:layout_below="@id/tv_champ_name"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="7dp"
                     android:src="@drawable/ic_participent"></ImageView>
@@ -55,7 +55,7 @@
                     android:id="@+id/coin1"
                     android:layout_width="90dp"
                     android:layout_height="77dp"
-                    android:layout_below="@id/champs"
+                    android:layout_below="@id/tv_champ_name"
                     android:layout_marginLeft="250dp"
                     android:layout_marginTop="7dp"
                     android:src="@drawable/kcoin"></ImageView>
@@ -103,7 +103,7 @@
 
 
             <TextView
-                android:id="@+id/starttime"
+                android:id="@+id/tv_champ_start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/quali"
@@ -119,7 +119,7 @@
                 android:id="@+id/endtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/starttime"
+                android:layout_below="@id/tv_champ_start_time"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_condensed_light"
