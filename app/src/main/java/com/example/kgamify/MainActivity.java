@@ -80,11 +80,8 @@ public class MainActivity extends AppCompatActivity {
         initializeView();
         listeners();
         move();
-
-        Toast.makeText(getApplicationContext(),"Latutide="+location_latitude+"\nLongitude"+location_longitude+"\nCountry"+location_country+"\nLocality"+location_locality+"\nAddress="+location_address,Toast.LENGTH_LONG).show();
-        setPhoneNumberAndImei();
-
-        getLocationInfo();
+        showLocation();
+        setPhoneNumber();
         setLanguage(language);
         postDataToApi();
 
@@ -170,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void showLocation() {
+    public void showLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -196,26 +193,19 @@ public class MainActivity extends AppCompatActivity {
                         location_locality = address.get(0).getLocality().toString();
                         location_address = address.get(0).getAddressLine(0).toString();
 
-                        Toast.makeText(getApplicationContext(),"Latutide="+location_latitude+"\nLongitude"+location_longitude+"\nCountry"+location_country+"\nLocality"+location_locality+"\nAddress="+location_address,Toast.LENGTH_LONG).show();
-                    } catch (IOException e) {
-                        Toast.makeText(MainActivity.this, "Location Null", Toast.LENGTH_SHORT).show();
+                    }
+                    catch (IOException e) {
                         e.printStackTrace();
                     }
-                } else {
-                    Toast.makeText(MainActivity.this, "Location Null", Toast.LENGTH_SHORT).show();
                 }
-
-                Toast.makeText(getApplicationContext(),"Latutide="+location_latitude+"\nLongitude"+location_longitude+"\nCountry"+location_country+"\nLocality"+location_locality+"\nAddress="+location_address,Toast.LENGTH_LONG).show();
-
             }
         });
     }
 
     private void postDataToApi() {
 
-
-        Retrofit retrofitClient = RetrofitInstance.getRetrofit();
-        api = retrofitClient.create(Api.class);
+        Retrofit retrofit=RetrofitInstance.getRetrofit();
+        api= retrofit.create(Api.class);
 
 
         btn_send_otp.setOnClickListener(new View.OnClickListener() {
@@ -263,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    private void setPhoneNumberAndImei() {
+    private void setPhoneNumber() {
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
         {
@@ -277,18 +267,7 @@ public class MainActivity extends AppCompatActivity {
 
         String ph=telephonyManager.getLine1Number();
         edtText_enter_phone_no.setText(ph);
-       /* try {
-            imei=telephonyManager.getImei().toString();
-        }
-        catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "error="+e.toString(), Toast.LENGTH_LONG).show();
-        }*/
 
-
-
-
-
-        //Toast.makeText(this,ph,Toast.LENGTH_SHORT).show();
     }
 
     @Override
