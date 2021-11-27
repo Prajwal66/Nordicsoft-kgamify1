@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/sidemenu"
+        android:id="@+id/img_cat_sidemenu"
         android:layout_width="54dp"
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,21 +17,21 @@
         app:srcCompat="@drawable/sidemenu" />
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/search_view_cat"
         android:layout_width="254dp"
         android:layout_height="35dp"
         android:background="@drawable/box2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toEndOf="@+id/sidemenu"
+        app:layout_constraintStart_toEndOf="@+id/img_cat_sidemenu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022"></SearchView>
 
 
 
     <TextView
-        android:id="@+id/serachcategory"
+        android:id="@+id/tv_search_cat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.039"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/search_view_cat"
         app:layout_constraintVertical_bias="0.01999998" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -52,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/serachcategory"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_cat"
         app:layout_constraintVertical_bias="0.13999999"></androidx.recyclerview.widget.RecyclerView>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"

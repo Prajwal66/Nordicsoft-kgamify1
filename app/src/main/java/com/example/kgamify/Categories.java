@@ -35,10 +35,10 @@ public class Categories extends AppCompatActivity {
 
     //Api Integration Variables
     CompositeDisposable compositeDisposable = new CompositeDisposable();
-    Api api2,api3;
+    Api api2;
     List<Backend_Category> category_arr;
-    List<Backend_Championship> champ_arr;
-    String category_name,champ_name,champ_discription;
+
+
 
 
     RecyclerView recycler_view_1;
@@ -49,10 +49,11 @@ public class Categories extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
         getSupportActionBar().hide();
 
-        info = new Dialog(this);    //info popup
+      //  info = new Dialog(this);    //info popup
 
         initialize();
         getCategoriesFromApi();
+
 
         recycler_view_1.setLayoutManager(new LinearLayoutManager(this));
 
@@ -103,6 +104,7 @@ public class Categories extends AppCompatActivity {
 
     }
 
+
     private void getCategoriesFromApi() {
 
         api2=RetrofitInstance.getRetrofit().create(Api.class);
@@ -113,9 +115,9 @@ public class Categories extends AppCompatActivity {
             public void onResponse(Call<Backend_CategoryWrapper> call, Response<Backend_CategoryWrapper> response) {
 
                 category_arr=response.body().getBackend_categories();
-                int m=category_arr.size();
 
-                recycler_view_1.setAdapter(new myAdapter(category_arr));
+
+                recycler_view_1.setAdapter(new myAdapter(category_arr,getApplicationContext()));
             }
 
             @Override

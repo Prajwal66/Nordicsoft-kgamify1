@@ -4,17 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-large/activity_categories.xml" value="0.4494047619047619" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-large/activity_championships.xml" value="0.19808743169398907" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-large/championship_expand.xml" value="0.38591269841269843" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-large/main_category.xml" value="0.35912698412698413" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-normal/activity_categories.xml" value="0.16394927536231885" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-normal/activity_championships.xml" value="0.26268115942028986" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-normal/championship_expand.xml" value="0.17617753623188406" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-normal/main_category.xml" value="0.16394927536231885" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-small/activity_categories.xml" value="0.5953947368421053" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-small/activity_championships.xml" value="0.26268115942028986" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-small/championship_expand.xml" value="0.6398026315789473" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-small/main_category.xml" value="0.5953947368421053" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-xlarge/activity_categories.xml" value="0.12363387978142076" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-xlarge/activity_championships.xml" value="0.19808743169398907" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-xlarge/championship_expand.xml" value="0.1328551912568306" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout-xlarge/main_category.xml" value="0.12363387978142076" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/activity_categories.xml" value="0.266304347826087" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/activity_championships.xml" value="0.26268115942028986" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/activity_game_mode.xml" value="0.266304347826087" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/activity_main.xml" value="0.266304347826087" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/championship_expand.xml" value="0.266304347826087" />
+        <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/info.xml" value="0.18568840579710144" />
         <entry key="..\:/Git Stuti-24/K-Gamify/app/src/main/res/layout/main_category.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/Admin/Downloads/K-gamify/app/src/main/res/layout-large/activity_main.xml" value="0.5684523809523809" />
         <entry key="..\:/Users/Admin/Downloads/K-gamify/app/src/main/res/layout/activity_main.xml" value="0.18659420289855072" />

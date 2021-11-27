@@ -9,8 +9,13 @@ public class Backend_Category {
     @Expose
     private String category;
 
-    public Backend_Category(String category) {
+    @SerializedName("count")
+    @Expose
+    private String count;
+
+    public Backend_Category(String category,String count) {
         this.category = category;
+        this.count=count;
     }
 
     public String getCategory() {
@@ -19,5 +24,13 @@ public class Backend_Category {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public void setCount(String count) {
+        this.count = count;
     }
 }
