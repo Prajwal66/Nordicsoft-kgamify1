@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -63,7 +64,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.holder> {
 
         TextView tv_cat_name,tv_number_of_champ;
         ImageView img_expand_more;
-        LinearLayout linear_layout_category_box;
+       RelativeLayout linear_layout_category_box;
 
 
         public holder(@NonNull View itemView) {
@@ -71,8 +72,8 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.holder> {
 
             tv_cat_name=(TextView) itemView.findViewById(R.id.tv_cat_name);
             tv_number_of_champ=(TextView) itemView.findViewById(R.id.tv_number_of_champ);
-            img_expand_more=(ImageView) itemView.findViewById(R.id.img_expand_more);
-            linear_layout_category_box=(LinearLayout) itemView.findViewById(R.id.fixed_layout);
+            //img_expand_more=(ImageView) itemView.findViewById(R.id.img_expand_more);
+            linear_layout_category_box=(RelativeLayout) itemView.findViewById(R.id.fixed_layout);
 
 
 

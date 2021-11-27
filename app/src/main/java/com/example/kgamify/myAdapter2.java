@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
 
     List<Backend_Championship> champ_arr;
     Context context;
+    LinearLayout  fixed_layout_champ;
 
     public myAdapter2(List<Backend_Championship> champ_arr,Context context) {
         this.champ_arr = champ_arr;
@@ -42,6 +44,16 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
         holder.tv_champ_end_time.setText("End Time : "+champ_arr.get(position).getEnd_time().toString());
         // holder.tv_number_of_participants.setText(champ_arr.get(position).getNumber_of_participants().toString());
         // holder.tv_total_coins.setText(champ_arr.get(position).getTotal_coins().toString());
+
+        holder.tv_qualification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context,GameMode.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
+            }
+        });
+
 
       /*  holder.img_i_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +94,7 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
             img_i_btn=(ImageView) itemView.findViewById(R.id.img_i_btn);
 
 
+            fixed_layout_champ=(LinearLayout) itemView.findViewById(R.id.fixed_layout_champ);
 
         }
     }
