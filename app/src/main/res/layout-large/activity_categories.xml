@@ -17,6 +17,16 @@
         app:layout_constraintVertical_bias="0.018"
         app:srcCompat="@drawable/sidemenu" />
 
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Search Category"
+        app:layout_constraintBottom_toBottomOf="@+id/search_view_cat"
+        app:layout_constraintEnd_toEndOf="@+id/search_view_cat"
+        app:layout_constraintStart_toStartOf="@+id/search_view_cat"
+        app:layout_constraintTop_toTopOf="@+id/search_view_cat"
+        />
+
     <SearchView
         android:id="@+id/search_view_cat"
         android:layout_width="288dp"
@@ -45,15 +55,16 @@
         app:layout_constraintTop_toBottomOf="@+id/search_view_cat"
         app:layout_constraintVertical_bias="0.01999998" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_search_cat"
-        app:layout_constraintVertical_bias="0.060000002"></androidx.recyclerview.widget.RecyclerView>
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler_view_1"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/guideline2"
+      app:layout_constraintStart_toStartOf="@+id/guideline1"
+      app:layout_constraintTop_toBottomOf="@+id/tv_search_cat"
+      app:layout_constraintVertical_bias="0.01999998"></androidx.recyclerview.widget.RecyclerView>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"

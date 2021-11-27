@@ -6,11 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -131,10 +127,9 @@ public class Categories extends AppCompatActivity {
     }
 
     private void initialize() {
-//card1
-        cardView = findViewById(R.id.card1);
-        arrow = findViewById(R.id.img_expand_more);
-        category1 = findViewById(R.id.category1);
+         //card1
+        
+        category1 = findViewById(R.id.fixed_layout_champ);
 
 
 

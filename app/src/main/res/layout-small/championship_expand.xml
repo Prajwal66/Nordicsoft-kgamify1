@@ -7,7 +7,7 @@
 
 
     <LinearLayout
-        android:id="@+id/category1"
+        android:id="@+id/fixed_layout_champ"
         android:layout_width="130dp"
         android:layout_height="100dp"
         android:background="@drawable/borader"

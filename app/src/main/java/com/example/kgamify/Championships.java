@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +45,6 @@ public class Championships extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_championships);
-
         getSupportActionBar().hide();
 
         myDialog_champ=new Dialog(this);
@@ -51,11 +52,14 @@ public class Championships extends AppCompatActivity {
         initialize();
         getChampionshipsFromApi();
 
+
         recycler_view_2.setLayoutManager(new LinearLayoutManager(this));
 
 
 
+
     }
+
 
     public void ShowPopup3(View v){
         TextView txtclose2;

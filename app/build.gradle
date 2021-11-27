@@ -36,6 +36,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
     testImplementation 'junit:junit:4.+'
+    //noinspection GradleCompatible
     implementation 'com.android.support:cardview-v7:26.1.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

@@ -30,7 +30,8 @@
 
 
     <LinearLayout
-        android:id="@+id/category1"
+
+        android:id="@+id/fixed_layout_champ"
         android:layout_width="349dp"
         android:layout_height="210dp"
         android:background="@drawable/borader"
