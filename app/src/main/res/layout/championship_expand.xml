@@ -65,7 +65,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/person1"
+                    android:id="@+id/img_person"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_below="@id/tv_champ_name"
@@ -74,7 +74,7 @@
                     android:src="@drawable/ic_participent"></ImageView>
 
                 <ImageView
-                    android:id="@+id/coin1"
+                    android:id="@+id/img_coin"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_below="@id/tv_champ_name"
@@ -89,18 +89,20 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_number_of_participants"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/person1"
+                    android:layout_below="@id/img_person"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:text="0 Participants"
                     android:textColor="@color/subcategory"></TextView>
 
                 <TextView
+                    android:id="@+id/tv_total_coins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/coin1"
+                    android:layout_below="@id/img_coin"
                     android:layout_marginLeft="90dp"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:text="1000 Total Coins"
@@ -110,10 +112,10 @@
 
 
             <TextView
-                android:id="@+id/quali"
+                android:id="@+id/tv_qualification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/person1"
+                android:layout_below="@id/img_person"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:text="Qualification: Any"
@@ -125,7 +127,7 @@
                 android:id="@+id/tv_champ_start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/quali"
+                android:layout_below="@id/tv_qualification"
                 android:layout_marginLeft="3dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_condensed_light"
@@ -135,7 +137,7 @@
 
 
             <TextView
-                android:id="@+id/endtime"
+                android:id="@+id/tv_champ_end_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_champ_start_time"
@@ -149,11 +151,12 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/img_i_btn"
             android:layout_width="30dp"
             android:layout_height="20dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="9dp"
-            android:onClick="ShowPopupinfo"
+            android:onClick="ShowPopup3"
             android:src="@drawable/ic_more_info"></ImageView>
     </LinearLayout>
 

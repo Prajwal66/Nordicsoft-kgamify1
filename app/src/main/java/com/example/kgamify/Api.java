@@ -10,17 +10,21 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface Api {
 
+    //Api to get all categories on catergory page in recycler view
     @GET("categories/all")
     Call<Backend_CategoryWrapper> getBackend_categories();
 
-    @GET("championships/getByCategory?category=Computer Science")
-    Call<Backend_ChampionshipWrapper> getItems();
 
+    //Api to get all championships under pertiular category on championship page in recycler view
+    @GET("championships/getByCategory")
+    Call<Backend_ChampionshipWrapper> getItems(@Query("category") String category);
+
+    //Api to post login info into database
     @POST("login")
-//    @FormUrlEncoded
     Call<Logins> loginUser(@Body Logins login);
 
 }
