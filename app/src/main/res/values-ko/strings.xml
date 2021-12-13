@@ -12,4 +12,9 @@
     <string name="resend_otp">OTP 재전송</string>
     <string name="select_category">select_category</string>
     <string name="select_championship">Select Championship</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+
 </resources>

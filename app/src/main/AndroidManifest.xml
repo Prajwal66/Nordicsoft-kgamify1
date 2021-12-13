@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.kgamify" >
+    package="com.example.kgamify">
 
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -17,7 +17,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Kgamify" >
+        android:theme="@style/Theme.Kgamify">
         <activity
             android:name=".Championships"
             android:exported="false" />
@@ -27,20 +27,20 @@
             android:resource="@xml/network_security_config" />
 
         <activity
+            android:name=".Categories"
+            android:exported="true" />
+        <activity
             android:name=".QuestionText"
             android:exported="true" />
         <activity
             android:name=".GameMode"
             android:exported="true" />
         <activity
-            android:name=".Categories"
-            android:exported="true" />
-        <activity
             android:name=".OTP_verification"
             android:exported="true" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
