@@ -38,6 +38,9 @@ public class Championships extends AppCompatActivity {
     Api api3;
     List<Backend_Championship> champ_arr;
 
+    //pop up contents
+    TextView part,kcoin,desp,pop_up_champ_name;
+
 
 
 
@@ -47,13 +50,15 @@ public class Championships extends AppCompatActivity {
         setContentView(R.layout.activity_championships);
         getSupportActionBar().hide();
 
-        myDialog_champ=new Dialog(this);
+
 
         initialize();
         getChampionshipsFromApi();
 
 
         recycler_view_2.setLayoutManager(new LinearLayoutManager(this));
+
+        myDialog_champ=new Dialog(this);
 
 
 
@@ -72,7 +77,14 @@ public class Championships extends AppCompatActivity {
                 myDialog_champ.dismiss();
             }
         });
+
+        /*part.setText(champ_arr.get(1).getNumber_of_participants().toString());
+        kcoin.setText(champ_arr.get(1).getTotal_coins().toString());
+        desp.setText(champ_arr.get(1).getDescription().toString());
+        pop_up_champ_name.setText(champ_arr.get(1).getChampionship().toString());*/
+
         myDialog_champ.show();
+
     }
 
     private void getChampionshipsFromApi() {
@@ -87,6 +99,7 @@ public class Championships extends AppCompatActivity {
             public void onResponse(Call<Backend_ChampionshipWrapper> call, Response<Backend_ChampionshipWrapper> response) {
 
                 champ_arr=response.body().getItems();
+
                 recycler_view_2.setAdapter(new myAdapter2(champ_arr,getApplicationContext()));
 
             }
@@ -106,6 +119,13 @@ public class Championships extends AppCompatActivity {
         search_view_champ=(SearchView)  findViewById(R.id.search_view_champ);
         tv_select_champ=(TextView) findViewById(R.id.tv_select_champ);
         recycler_view_2=(RecyclerView) findViewById(R.id.recycler_view_2);
+
+        //pop up contents
+        part=(TextView) findViewById(R.id.part);
+        kcoin=(TextView) findViewById(R.id.kcoin);
+        desp=(TextView) findViewById(R.id.desp);
+        pop_up_champ_name=(TextView) findViewById(R.id.pop_up_champ_name);
+
 
     }
 }

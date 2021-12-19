@@ -29,13 +29,9 @@ public class Backend_Championship {
     @Expose
     private String start_time;
 
-    @SerializedName("end_time")
-    @Expose
-    private String end_time;
-
     @SerializedName("total_coins")
     @Expose
-    private String total_coins;
+    private int total_coins;
 
     @SerializedName("isCategoryActive")
     @Expose
@@ -43,20 +39,29 @@ public class Backend_Championship {
 
     @SerializedName("number_of_participants")
     @Expose
-    private String number_of_participants;
+    private int number_of_participants;
+
+    @SerializedName("number_of_questions")
+    @Expose
+    private int number_of_questions;
+
+    @SerializedName("total_time")
+    @Expose
+    private int total_time;
 
 
-    public Backend_Championship(String category, String label, String championship, String description, String qualification, String start_time, String end_time, String total_coins, int isCategoryActive, String number_of_participants) {
+    public Backend_Championship(String category, String label, String championship, String description, String qualification, String start_time, String end_time, int total_coins, int isCategoryActive, int number_of_participants,int number_of_questions,int total_time) {
         this.category = category;
-        Label = label;
+        this.Label = label;
         this.championship = championship;
         this.description = description;
         this.qualification = qualification;
         this.start_time = start_time;
-        this.end_time = end_time;
         this.total_coins = total_coins;
         this.isCategoryActive = isCategoryActive;
         this.number_of_participants = number_of_participants;
+        this.number_of_questions=number_of_questions;
+        this.total_time=total_time;
     }
 
     public String getCategory() {
@@ -107,19 +112,12 @@ public class Backend_Championship {
         this.start_time = start_time;
     }
 
-    public String getEnd_time() {
-        return end_time;
-    }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
-    }
-
-    public String getTotal_coins() {
+    public int getTotal_coins() {
         return total_coins;
     }
 
-    public void setTotal_coins(String total_coins) {
+    public void setTotal_coins(int total_coins) {
         this.total_coins = total_coins;
     }
 
@@ -131,11 +129,27 @@ public class Backend_Championship {
         this.isCategoryActive = isCategoryActive;
     }
 
-    public String getNumber_of_participants() {
+    public int getNumber_of_participants() {
         return number_of_participants;
     }
 
-    public void setNumber_of_participants(String number_of_participants) {
+    public void setNumber_of_participants(int number_of_participants) {
         this.number_of_participants = number_of_participants;
+    }
+
+    public int getNumber_of_questions() {
+        return number_of_questions;
+    }
+
+    public void setNumber_of_questions(int number_of_questions) {
+        this.number_of_questions = number_of_questions;
+    }
+
+    public int getTotal_time() {
+        return total_time;
+    }
+
+    public void setTotal_time(int total_time) {
+        this.total_time = total_time;
     }
 }

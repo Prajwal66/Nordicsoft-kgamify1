@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +19,7 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
 
     List<Backend_Championship> champ_arr;
     Context context;
-    LinearLayout  fixed_layout_champ;
+    LinearLayout  fixed_layout_champ,champ_linear_layout;
 
     public myAdapter2(List<Backend_Championship> champ_arr,Context context) {
         this.champ_arr = champ_arr;
@@ -33,35 +34,36 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
         View view=inflater.inflate(R.layout.championship_expand,parent,false);
         return new holder2(view);
 
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull holder2 holder, int position) {
 
+        String Label_of_champ=champ_arr.get(position).getLabel().toString();
+        String champ_name=champ_arr.get(position).getChampionship().toString();
+        int num_of_questions=champ_arr.get(position).getNumber_of_questions();
+        int time_for_quiz=champ_arr.get(position).getTotal_time();
+
         holder.tv_champ_name.setText(champ_arr.get(position).getChampionship().toString());
         holder.tv_qualification.setText("Qualification : "+champ_arr.get(position).getQualification().toString());
         holder.tv_champ_start_time.setText("Start Time : "+champ_arr.get(position).getStart_time().toString());
-        holder.tv_champ_end_time.setText("End Time : "+champ_arr.get(position).getEnd_time().toString());
-        // holder.tv_number_of_participants.setText(champ_arr.get(position).getNumber_of_participants().toString());
-        // holder.tv_total_coins.setText(champ_arr.get(position).getTotal_coins().toString());
+        holder.tv_number_of_participants.setText(champ_arr.get(position).getNumber_of_participants()+" participants");
+        holder.tv_total_coins.setText(champ_arr.get(position).getTotal_coins()+" coins");
 
-        holder.tv_qualification.setOnClickListener(new View.OnClickListener() {
+        holder.tv_champ_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context,GameMode.class);
+                i.putExtra("Label_of_champ",Label_of_champ);
+                i.putExtra("champ_name",champ_name);
+                i.putExtra("num_of_questions",num_of_questions);
+                i.putExtra("time_for_quiz",time_for_quiz);
+
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
             }
         });
-
-
-      /*  holder.img_i_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Rushika please add open info pop up code here
-            }
-        });*/
-
 
     }
 
@@ -73,9 +75,10 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
 
     class holder2 extends RecyclerView.ViewHolder{
 
-     TextView tv_champ_name,tv_number_of_participants,tv_total_coins,tv_qualification,tv_champ_start_time,tv_champ_end_time;
+     TextView tv_champ_name,tv_number_of_participants,tv_total_coins,tv_qualification,tv_champ_start_time;
 
      ImageView img_person,img_coin,img_i_btn;
+
 
 
 
@@ -87,7 +90,7 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
             tv_total_coins=(TextView) itemView.findViewById(R.id.tv_total_coins);
             tv_qualification=(TextView) itemView.findViewById(R.id.tv_qualification);
             tv_champ_start_time=(TextView) itemView.findViewById(R.id.tv_champ_start_time);
-            tv_champ_end_time=(TextView) itemView.findViewById(R.id.tv_champ_end_time);
+
 
             img_person=(ImageView) itemView.findViewById(R.id.img_person);
             img_coin=(ImageView) itemView.findViewById(R.id.img_coin);
@@ -95,6 +98,8 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
 
 
             fixed_layout_champ=(LinearLayout) itemView.findViewById(R.id.fixed_layout_champ);
+            champ_linear_layout=(LinearLayout) itemView.findViewById(R.id.champ_linear_layout);
+
 
         }
     }

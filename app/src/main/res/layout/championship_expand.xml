@@ -45,6 +45,7 @@
 
 
         <LinearLayout
+            android:id="@+id/champ_linear_layout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -96,7 +97,7 @@
                     android:layout_below="@id/img_person"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/roboto_condensed_regular"
-                    android:text="0 Participants"
+                    android:text="100 Participants"
                     android:textColor="@color/subcategory"></TextView>
 
                 <TextView

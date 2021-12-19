@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();        //Code to remove Action Bar
 
+
         initializeView();
         listeners();
         move();
