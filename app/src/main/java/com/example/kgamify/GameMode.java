@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameMode extends AppCompatActivity {
 
@@ -19,6 +20,10 @@ public class GameMode extends AppCompatActivity {
     Dialog myDialog2;   //info popup (showpopup2)
     Dialog update;    //update popup
 
+    String Label_of_champ,champ_name,game_mode;
+    int num_of_questions,time_for_quiz;
+    TextView tv_game_mode_quick_hit,tv_game_mode_select_gift;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,15 @@ public class GameMode extends AppCompatActivity {
         getSupportActionBar().hide(); //Code to remove Action Bar
 
 
+        initialize();
+
+
+
+        //getting values, transfered from category page
+        Label_of_champ=getIntent().getStringExtra("Label_of_champ");
+        champ_name=getIntent().getStringExtra("champ_name");
+        num_of_questions=getIntent().getIntExtra("num_of_questions",0);
+        time_for_quiz=getIntent().getIntExtra("time_for_quiz",0);
 
         myDialog = new Dialog(this);
         myDialog1 =new Dialog(this);
@@ -46,6 +60,11 @@ public class GameMode extends AppCompatActivity {
 
 
 
+    }
+
+    private void initialize() {
+        tv_game_mode_quick_hit=(TextView) findViewById(R.id.tv_game_mode_quick_hit);
+        tv_game_mode_select_gift=(TextView) findViewById(R.id.tv_game_mode_select_gift);
     }
 
     public void ShowPopupupdate(View v){
@@ -89,6 +108,12 @@ public class GameMode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i= new Intent(GameMode.this,QuestionText.class);
+                game_mode="Quick Hit";
+                i.putExtra("Label_of_champ",Label_of_champ);
+                i.putExtra("champ_name",champ_name);
+                i.putExtra("game_mode",game_mode);
+                i.putExtra("num_of_questions",num_of_questions);
+                i.putExtra("time_for_quiz",time_for_quiz);
                 startActivity(i);
             }
         });
@@ -116,6 +141,13 @@ public class GameMode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(GameMode.this,QuestionText.class);
+                game_mode="Select Gift and Play";
+                in.putExtra("Label_of_champ",Label_of_champ);
+                in.putExtra("champ_name",champ_name);
+                in.putExtra("game_mode",game_mode);
+                in.putExtra("num_of_questions",num_of_questions);
+                in.putExtra("time_for_quiz",time_for_quiz);
+
                 startActivity(in);
             }
         });

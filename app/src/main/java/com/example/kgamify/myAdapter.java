@@ -42,7 +42,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.holder> {
 
         String Cat_selected=category_arr.get(position).getCategory().toString();
         holder.tv_cat_name.setText(Cat_selected);
-        holder.tv_number_of_champ.setText(category_arr.get(position).getCount().toString());
+        holder.tv_number_of_champ.setText(category_arr.get(position).getCount()+" Championships");
         holder.linear_layout_category_box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

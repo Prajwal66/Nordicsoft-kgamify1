@@ -19,8 +19,11 @@ public interface Api {
     @GET("championships/getByCategory")
     Call<Backend_ChampionshipWrapper> getItems(@Query("category") String category);
 
+    //Api to get all questions under pertiular championship
+    @GET("questions/getByLabel")
+    Call<Backend_QuestionWrapper> getQuestion(@Query("label") String label);
+
     //Api to post login info into database
     @POST("login")
     Call<Logins> loginUser(@Body Logins login);
-
 }
