@@ -11,19 +11,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/tv_select_champ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:text="Select_championships"
+            android:text="Select Championships"
             android:textColor="@color/heading_orange"
-            android:textSize="22sp"
+            android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_champ_2"
             app:layout_constraintHorizontal_bias="0.039"
             app:layout_constraintStart_toStartOf="@+id/guideline_champ_1"
-
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.01999998" />
 
@@ -31,6 +31,7 @@
             android:id="@+id/recycler_view_2"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_champ_2"
             app:layout_constraintStart_toStartOf="@+id/guideline_champ_1"
@@ -53,6 +54,8 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

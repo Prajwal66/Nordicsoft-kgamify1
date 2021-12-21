@@ -253,6 +253,7 @@
 
 
             <TextView
+                android:onClick="ShowPopupwrongque"
                 android:id="@+id/button5"
                 android:layout_width="50dp"
                 android:layout_height="45dp"
@@ -272,12 +273,35 @@
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
+            <LinearLayout
+                android:onClick="ShowPopupquitgame"
+                android:id="@+id/quit_que"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_que_quit"
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_quit_24"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Quit"
+                    android:textColor="#F44336"
+                    android:textSize="20dp"></TextView>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/previous_que"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="30dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -345,28 +369,7 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/quit_que"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/img_que_quit"
-                    android:layout_width="35dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_quit_24"></ImageView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Quit"
-                    android:textColor="#F44336"
-                    android:textSize="20dp"></TextView>
-            </LinearLayout>
 
         </LinearLayout>
 

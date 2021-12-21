@@ -85,7 +85,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/roboto_condensed_regular"
-                    android:text="1. Only Two questions per game."
+                    android:text="1. Only 2 questions per game."
                     android:textColor="@color/black"
                     android:textSize="17sp"></TextView>
 

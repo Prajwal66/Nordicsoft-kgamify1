@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp">
 
 
     <LinearLayout
@@ -11,7 +13,7 @@
         android:layout_width="349dp"
         android:layout_height="220dp"
         android:background="@drawable/borader"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -19,6 +21,10 @@
         app:layout_constraintVertical_bias="0.01999998"
         tools:ignore="MissingConstraints">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="175dp"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="300dp"
@@ -55,7 +61,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_below="@id/tv_champ_name"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="110dp"
                     android:layout_marginTop="7dp"
                     android:src="@drawable/kcoin"></ImageView>
             </LinearLayout>
@@ -82,7 +88,7 @@
                     android:layout_below="@id/img_coin"
                     android:layout_marginLeft="80dp"
                     android:fontFamily="@font/roboto_condensed_regular"
-                    android:text="1000 Total Coins"
+                    android:text="100 Coins"
                     android:textColor="#6A6A6A"></TextView>
 
             </LinearLayout>
@@ -105,25 +111,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_qualification"
-                android:layout_marginLeft="3dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_condensed_light"
                 android:text="Start Time: 30 Oct 2021 | 00:00 IST"
                 android:textColor="#6A6A6A"
                 android:textSize="16dp"></TextView>
 
-
-            <TextView
-                android:id="@+id/tv_champ_end_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_champ_start_time"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:text="End Time: 30 May 2022 | 00:00 IST"
-                android:textColor="#6A6A6A"
-                android:textSize="16dp"></TextView>
 
         </LinearLayout>
 
@@ -132,8 +125,17 @@
             android:layout_height="20dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="9dp"
-            android:onClick="ShowPopup3"
             android:src="@drawable/ic_more_info"></ImageView>
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_playGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Game"
+            android:fontFamily="@font/roboto_condensed_regular"
+           android:layout_gravity="center"></Button>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline

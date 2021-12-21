@@ -2,16 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <LinearLayout
         android:id="@+id/fixed_layout_champ"
         android:layout_width="397dp"
-        android:layout_height="240dp"
+        android:layout_height="250dp"
         android:background="@drawable/borader"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -19,6 +21,10 @@
         app:layout_constraintVertical_bias="0.01999998"
         tools:ignore="MissingConstraints">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="350dp"
@@ -55,7 +61,7 @@
                     android:layout_width="45dp"
                     android:layout_height="35dp"
                     android:layout_below="@id/tv_champ_name"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="130dp"
                     android:layout_marginTop="7dp"
                     android:src="@drawable/kcoin"></ImageView>
             </LinearLayout>
@@ -83,7 +89,7 @@
                     android:layout_below="@id/img_coin"
                     android:layout_marginLeft="100dp"
                     android:fontFamily="@font/roboto_condensed_regular"
-                    android:text="1000 Total Coins"
+                    android:text="100 Coins"
                     android:textColor="@color/subcategory"
                     android:textSize="16sp"></TextView>
 
@@ -95,7 +101,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img_person"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:text="Qualification: Any"
@@ -108,7 +113,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_qualification"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_condensed_light"
                 android:text="Start Time: 30 Oct 2021 | 00:00 IST"
@@ -116,17 +120,8 @@
                 android:textSize="16sp"></TextView>
 
 
-            <TextView
-                android:id="@+id/tv_champ_end_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_champ_start_time"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:text="End Time: 30 May 2022 | 00:00 IST"
-                android:textColor="@color/subcategory"
-                android:textSize="16sp"></TextView>
+
+
 
         </LinearLayout>
 
@@ -135,8 +130,18 @@
             android:layout_height="30dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="9dp"
-            android:onClick="ShowPopup3"
             android:src="@drawable/ic_more_info"></ImageView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_playGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Game"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"></Button>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline

@@ -42,8 +42,6 @@ public class Championships extends AppCompatActivity {
     TextView tv_select_champ;
     RecyclerView recycler_view_2;
 
-    Dialog myDialog_champ;
-
     //Api variables
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     Api api3;
@@ -103,7 +101,6 @@ public class Championships extends AppCompatActivity {
 
         recycler_view_2.setLayoutManager(new LinearLayoutManager(this));
 
-        myDialog_champ=new Dialog(this);
 
 
 
@@ -119,26 +116,6 @@ public class Championships extends AppCompatActivity {
     }
 
 
-    public void ShowPopup3(View v){
-        TextView txtclose2;
-
-        myDialog_champ.setContentView(R.layout.info);
-        txtclose2 =(TextView) myDialog_champ.findViewById(R.id.txtclose2);
-        txtclose2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myDialog_champ.dismiss();
-            }
-        });
-
-        /*part.setText(champ_arr.get(1).getNumber_of_participants().toString());
-        kcoin.setText(champ_arr.get(1).getTotal_coins().toString());
-        desp.setText(champ_arr.get(1).getDescription().toString());
-        pop_up_champ_name.setText(champ_arr.get(1).getChampionship().toString());*/
-
-        myDialog_champ.show();
-
-    }
 
     private void getChampionshipsFromApi() {
 

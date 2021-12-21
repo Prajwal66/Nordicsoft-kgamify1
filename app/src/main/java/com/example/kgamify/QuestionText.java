@@ -2,9 +2,12 @@ package com.example.kgamify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +31,9 @@ public class QuestionText extends AppCompatActivity {
     TextView txt_timer;
     TextView btn1,btn2,btn3,btn4,btn5,tv_que_coins,tv_que,tv_que_opt1,tv_que_opt2,tv_que_opt3,tv_que_opt4,tv_que_number,tv_que_champ_name,tv_game_mode_name;
     ImageView img_que_previous,img_que_skip,img_que_next,img_que_quit;
+
+    Dialog quit_game;
+    Dialog wrong_question;
 
     //Api variables
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -55,15 +61,16 @@ public class QuestionText extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_text);
-
         getSupportActionBar().hide(); //Code to remove Action Bar
+
+
         random=new Random();
         sequence=new HashSet<>();
         dummy_arr_que=new ArrayList<>();
         list_results=new ArrayList<Result>();
 
-
-
+        quit_game = new Dialog(this);
+        wrong_question =new Dialog(this);
 
 
 
@@ -843,6 +850,69 @@ public class QuestionText extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Time Out", Toast.LENGTH_LONG).show();
             }
         }.start();
+    }
+
+
+
+
+    public void ShowPopupquitgame(View v){
+        Button btn_quit_yes,btn_quit_no;
+
+        quit_game.setContentView(R.layout.quit_game_popup);
+        btn_quit_yes =(Button) quit_game.findViewById(R.id.btn_quit_yes);
+        btn_quit_no =(Button) quit_game.findViewById(R.id.btn_quit_no);
+
+        btn_quit_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quit_game.dismiss();
+            }
+        });
+        quit_game.show();
+
+        btn_quit_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =new Intent(QuestionText.this,CalculateResult.class);
+                startActivity(intent);
+
+                //Toast.makeText(QuestionText.this,"Quit Game ",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+
+    public void ShowPopupwrongque(View v){
+        Button btn_wrong_yes,btn_wrong_no;
+
+        wrong_question.setContentView(R.layout.wrong_que_popup);
+        btn_wrong_yes =(Button) wrong_question.findViewById(R.id.btn_wrong_yes);
+        btn_wrong_no =(Button) wrong_question.findViewById(R.id.btn_wrong_no);
+
+        btn_wrong_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                wrong_question.dismiss();
+            }
+        });
+        wrong_question.show();
+
+        btn_wrong_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                wrong_question.dismiss();
+
+                Toast.makeText(QuestionText.this,"Question is Wrong .Click On Next Button",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        wrong_question.show();
+
     }
 
 }

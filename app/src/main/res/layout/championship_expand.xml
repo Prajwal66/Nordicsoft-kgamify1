@@ -3,39 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp">
 
 
-   <!-- this linear layout use when you want to hidden same like expand view
-  of  champonship  if when you click on + sign an show championship
-   but without click expand is shown then use this linear layout
-
-    <LinearLayout
-        android:id="@+id/hidden_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-    </LinearLayout>
-
-
-
-   -->
 
 
     <LinearLayout
-
         android:id="@+id/fixed_layout_champ"
         android:layout_width="349dp"
-        android:layout_height="210dp"
+        android:layout_height="220dp"
         android:background="@drawable/borader"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -43,6 +23,10 @@
         app:layout_constraintVertical_bias="0.04000002"
         tools:ignore="MissingConstraints">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/champ_linear_layout"
@@ -107,7 +91,7 @@
                     android:layout_below="@id/img_coin"
                     android:layout_marginLeft="90dp"
                     android:fontFamily="@font/roboto_condensed_regular"
-                    android:text="1000 Total Coins"
+                    android:text="100 Coins"
                     android:textColor="@color/subcategory"></TextView>
 
             </LinearLayout>
@@ -130,7 +114,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_qualification"
-                android:layout_marginLeft="3dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_condensed_light"
                 android:text="Start Time: 30 Oct 2021 | 00:00 IST"
@@ -138,17 +121,9 @@
                 android:textSize="16dp"></TextView>
 
 
-            <TextView
-                android:id="@+id/tv_champ_end_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_champ_start_time"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:text="End Time: 30 May 2022 | 00:00 IST"
-                android:textColor="@color/subcategory"
-                android:textSize="16dp"></TextView>
+
+
+
 
         </LinearLayout>
 
@@ -158,8 +133,18 @@
             android:layout_height="20dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="9dp"
-            android:onClick="ShowPopup3"
             android:src="@drawable/ic_more_info"></ImageView>
+
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_playGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Game"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center"></Button>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
