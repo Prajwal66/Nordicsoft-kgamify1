@@ -27,6 +27,7 @@
         android:layout_width="254dp"
         android:layout_height="215dp"
         android:src="@drawable/gift_win"
+        android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"

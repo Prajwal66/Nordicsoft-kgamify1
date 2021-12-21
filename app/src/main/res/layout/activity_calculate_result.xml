@@ -10,6 +10,7 @@
         android:id="@+id/trophy"
         android:layout_width="128dp"
         android:layout_height="134dp"
+        android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
