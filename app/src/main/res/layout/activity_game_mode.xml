@@ -35,22 +35,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <ImageView
-        android:onClick="ShowPopup2"
-        android:id="@+id/imageView2"
-        android:layout_width="34dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.76"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024"
-        app:srcCompat="@drawable/ic_more_info" />
-
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="260dp"
+        android:id="@+id/tv_champ_select"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
         android:textColor="@color/category"
@@ -63,30 +50,16 @@
         app:layout_constraintVertical_bias="0.01999998" />
 
 
-    <TextView
-        android:onClick="ShowPopupupdate"
-        android:id="@+id/update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_condensed_regular"
-        android:text="Update"
-        android:textColor="#062CFF"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.00999999" />
 
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/update"
+        app:layout_constraintTop_toBottomOf="@+id/tv_champ_select"
         app:layout_constraintVertical_bias="0.19">
 
         <LinearLayout
@@ -490,8 +463,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-
 
 
 

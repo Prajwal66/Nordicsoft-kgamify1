@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/newdrawer"
-    tools:openDrawer="start"
-    tools:context=".Championships">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_drawer_layout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
-            android:id="@+id/tv_select_champ"
+            android:id="@+id/tv_search_cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:text="Select Championships"
+            android:text="@string/select_category"
             android:textColor="@color/heading_orange"
-            android:textSize="50sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_champ_2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.039"
-            app:layout_constraintStart_toStartOf="@+id/guideline_champ_1"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.01999998" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_2"
+            android:id="@+id/recycler_view_1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_champ_2"
-            app:layout_constraintStart_toStartOf="@+id/guideline_champ_1"
-            app:layout_constraintTop_toBottomOf="@+id/tv_select_champ"
-            app:layout_constraintVertical_bias="0.47000003"></androidx.recyclerview.widget.RecyclerView>
-
-
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_search_cat"
+            app:layout_constraintVertical_bias="0.00999999"></androidx.recyclerview.widget.RecyclerView>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_champ_1"
+            android:id="@+id/guideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="20dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_champ_2"
+            android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_end="20dp" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--this the navigation view which draws
+        and shows the navigation drawer-->
+    <!--include the menu created in the menu folder-->
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:id="@+id/nav_view1"
+        android:id="@+id/nav_view"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/iconmenu1" />
-
+        app:menu="@menu/iconmenu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -19,6 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kgamify">
         <activity
+            android:name=".ClaimGift"
+            android:exported="true" />
+        <activity
+            android:name=".CalculateResult"
+            android:exported="true" />
+        <activity
+            android:name=".ChampInfo"
+            android:exported="true" />
+        <activity
             android:name=".Championships"
             android:exported="false" />
 
