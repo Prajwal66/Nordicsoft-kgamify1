@@ -1,6 +1,10 @@
 package com.example.kgamify;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,12 +12,16 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.w3c.dom.Text;
 
@@ -25,7 +33,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Championships extends AppCompatActivity {
-
+    NavigationView nav;
+    ActionBarDrawerToggle toggle;
+    DrawerLayout drawerLayouts;
+    Toolbar toolbar;
     ImageView img_champ_sidemenu;
     SearchView search_view_champ;
     TextView tv_select_champ;
@@ -48,7 +59,41 @@ public class Championships extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_championships);
-        getSupportActionBar().hide();
+
+        nav = findViewById(R.id.nav_view1);
+        drawerLayouts = findViewById(R.id.newdrawer);
+
+        toggle = new ActionBarDrawerToggle(this, drawerLayouts, R.string.open, R.string.close);
+        //this is used for side menu bar icon which will open and close the navigation
+
+        drawerLayouts.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+        // to make the Navigation drawer icon always appear on the action bar
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_categories:
+                        Intent intent = new Intent(Championships.this, Categories.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.menu_Notifications:
+                        Toast.makeText(getApplicationContext(), "NOTIFICATIONS", Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.menu_wallet:
+                        Toast.makeText(getApplicationContext(), "99+", Toast.LENGTH_LONG).show();
+                        break;
+                }
+                return true;
+            }
+        });
 
 
 
@@ -63,6 +108,14 @@ public class Championships extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -115,8 +168,6 @@ public class Championships extends AppCompatActivity {
 
     private void initialize() {
 
-        img_champ_sidemenu=(ImageView) findViewById(R.id.img_champ_sidemenu);
-        search_view_champ=(SearchView)  findViewById(R.id.search_view_champ);
         tv_select_champ=(TextView) findViewById(R.id.tv_select_champ);
         recycler_view_2=(RecyclerView) findViewById(R.id.recycler_view_2);
 
