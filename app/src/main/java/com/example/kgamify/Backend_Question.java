@@ -7,7 +7,7 @@ public class Backend_Question {
 
     @SerializedName("coins")
     @Expose
-    private String coins;
+    private int coins;
 
     @SerializedName("Label")
     @Expose
@@ -16,6 +16,10 @@ public class Backend_Question {
     @SerializedName("questionID")
     @Expose
     private String questionID;
+
+    @SerializedName("wrong question")
+    @Expose
+    private int wrong_que;
 
     @SerializedName("question")
     @Expose
@@ -41,10 +45,11 @@ public class Backend_Question {
     @Expose
     private String answer;
 
-    public Backend_Question(String coins, String Label, String questionID, String question, String option4, String option3, String option2, String option1, String answer) {
+    public Backend_Question(int coins, String Label, String questionID,int wrong_que, String question, String option4, String option3, String option2, String option1, String answer) {
         this.coins = coins;
         this.Label = Label;
         this.questionID = questionID;
+        this.wrong_que=wrong_que;
         this.question = question;
         this.option4 = option4;
         this.option3 = option3;
@@ -53,11 +58,11 @@ public class Backend_Question {
         this.answer = answer;
     }
 
-    public String getCoins() {
+    public int getCoins() {
         return coins;
     }
 
-    public void setCoins(String coins) {
+    public void setCoins(int coins) {
         this.coins = coins;
     }
 
@@ -75,6 +80,14 @@ public class Backend_Question {
 
     public void setQuestionID(String questionID) {
         this.questionID = questionID;
+    }
+
+    public int getWrong_que() {
+        return wrong_que;
+    }
+
+    public void setWrong_que(int wrong_que) {
+        this.wrong_que = wrong_que;
     }
 
     public String getQuestion() {

@@ -26,4 +26,17 @@ public interface Api {
     //Api to post login info into database
     @POST("login")
     Call<Logins> loginUser(@Body Logins login);
+
+    //Api to post question is wrong to database
+    @POST("questions")
+    Call<Backend_Question> setQueRightWrong(@Body Backend_Question backend_question);
+
+    //Api to get current user info
+    @GET("login/all")
+    Call<LoginsWrapper> getCurrentUser();
+
+    //Api to set coins in user wallet
+    @POST("login")
+    Call<Logins> setWalletCoins(@Body Logins logins);
+
 }

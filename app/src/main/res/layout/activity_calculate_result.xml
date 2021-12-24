@@ -102,7 +102,7 @@
         app:srcCompat="@drawable/poppers" />
 
     <TextView
-        android:id="@+id/congrtes"
+        android:id="@+id/tv_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
@@ -126,7 +126,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toBottomOf="@+id/congrtes"
+        app:layout_constraintTop_toBottomOf="@+id/tv_msg"
         app:layout_constraintVertical_bias="0.13"
         tools:ignore="MissingConstraints">
 
@@ -139,7 +139,7 @@
             android:textSize="25dp"></TextView>
 
         <TextView
-            android:id="@+id/result_score"
+            android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -171,7 +171,7 @@
                 android:src="@drawable/kcoin"></ImageView>
 
             <TextView
-                android:id="@+id/winner_coins"
+                android:id="@+id/tv_coins_earned"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -188,9 +188,9 @@
         android:id="@+id/btn_claimgift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Claim your Gift"
-        android:textSize="20dp"
         android:fontFamily="@font/roboto_condensed_regular"
+        android:text="Go to categories"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.495"
