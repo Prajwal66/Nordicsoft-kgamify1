@@ -12,6 +12,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Address;
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
     Resources resources;
     FusedLocationProviderClient fusedLocationProviderClient;
 
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name="my_pref";
+    private static final String key_phone="phone";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +82,23 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();        //Code to remove Action Bar
 
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        //when activity is opened , first check sharedpreference data is available or not
+        String phone=sharedPreferences.getString(key_phone,null);
+        if (phone!=null)
+        {
+            //if data is available then directly call category page
+            Intent i=new Intent(MainActivity.this,Categories.class);
+            startActivity(i);
+        }
+
+
 
         initializeView();
         listeners();
         move();
-        showLocation();
-        setPhoneNumber();
+        getLocationInfo();
+       // setPhoneNumber();
         setLanguage(language);
         postDataToApi();
 
@@ -157,15 +173,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 100);
         }
-
-        /*if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 100);
-        }
-
-            showLocation();*/
-
-
     }
 
     public void showLocation() {
@@ -219,9 +226,17 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                //setPhoneNumberAndImei();
+
                 String number=edtText_enter_phone_no.getText().toString();
-                postData(number,ccp.getSelectedCountryCode().toString(),location_latitude,location_longitude,location_country,location_locality,location_address);
+                int wallet_coins=0;
+                postData(number,ccp.getSelectedCountryCode().toString(),wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address);
+
+
+
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString(key_phone,edtText_enter_phone_no.getText().toString());
+                editor.apply();
+
 
                 Intent i=new Intent(MainActivity.this,OTP_verification.class);
                 i.putExtra("mobile",edtText_enter_phone_no.getText().toString());
@@ -232,9 +247,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void postData(String phone2,String country2,Double location_latitude2,Double location_longitude2,String location_country2,String location_locality2,String location_address2) {
-        Logins logins = new Logins(phone2, country2,location_latitude2,location_longitude2,location_country2,location_locality2,location_address2);
-        Call<Logins> loginsCall= api.loginUser(new Logins(phone2, country2,location_latitude2,location_longitude2,location_country2,location_locality2,location_address2));
+    public void postData(String phone2,String country2,int wallet_coins2,Double location_latitude2,Double location_longitude2,String location_country2,String location_locality2,String location_address2) {
+        Logins logins = new Logins(phone2, country2,wallet_coins2,location_latitude2,location_longitude2,location_country2,location_locality2,location_address2);
+
+        Call<Logins> loginsCall= api.loginUser(new Logins(phone2, country2,wallet_coins2,location_latitude2,location_longitude2,location_country2,location_locality2,location_address2));
         loginsCall.enqueue(new Callback<Logins>() {
             @Override
             public void onResponse(Call<Logins> call, Response<Logins> response) {
@@ -386,6 +402,7 @@ public class MainActivity extends AppCompatActivity {
         btn_skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent=new Intent(MainActivity.this,Categories.class);
                 startActivity(intent);
             }

@@ -13,6 +13,10 @@ public class Logins {
     @Expose
     private String country_code;
 
+    @SerializedName("wallet_coins")
+    @Expose
+    private int wallet_coins;
+
     @SerializedName("location_lattitude")
     @Expose
     private Double location_lattitude;
@@ -34,9 +38,10 @@ public class Logins {
     private String location_address;
 
 
-    public Logins(String phone, String country_code,Double location_latitute,Double location_longitude,String location_country,String location_locality,String location_address) {
+    public Logins(String phone, String country_code,int wallet_coins,Double location_latitute,Double location_longitude,String location_country,String location_locality,String location_address) {
         this.phone = phone;
         this.country_code = country_code;
+        this.wallet_coins=wallet_coins;
         this.location_lattitude=location_latitute;
         this.location_longitude=location_longitude;
         this.location_country=location_country;
@@ -59,6 +64,14 @@ public class Logins {
 
     public void setCountry_code(String country_code) {
         this.country_code = country_code;
+    }
+
+    public int getWallet_coins() {
+        return wallet_coins;
+    }
+
+    public void setWallet_coins(int wallet_coins) {
+        this.wallet_coins = wallet_coins;
     }
 
     public Double getLocation_lattitude() {

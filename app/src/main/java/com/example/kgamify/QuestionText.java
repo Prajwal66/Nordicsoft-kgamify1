@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 
@@ -31,6 +32,7 @@ public class QuestionText extends AppCompatActivity {
     TextView txt_timer;
     TextView btn1,btn2,btn3,btn4,btn5,tv_que_coins,tv_que,tv_que_opt1,tv_que_opt2,tv_que_opt3,tv_que_opt4,tv_que_number,tv_que_champ_name,tv_game_mode_name;
     ImageView img_que_previous,img_que_skip,img_que_next,img_que_quit;
+    TextView tv_next,tv_previous,tv_skip,tv_quit;
 
     Dialog quit_game;
     Dialog wrong_question;
@@ -43,18 +45,25 @@ public class QuestionText extends AppCompatActivity {
 
     int x=0;
     Random random;
+    int que_right_wrong=0;
     List<Backend_Question> dummy_arr_que;
-    Backend_Question bck;
+    Backend_Question bck,bck2;
     Set <Integer> sequence;
     List<Result> list_results;
     Result res;
 
 
     String champ_name,Label_of_champ,game_mode;
-    int num_of_questions,time_for_quiz;
+    int num_of_questions,time_for_quiz,bonus_coins;
     long timer;
     String ans_from_db,selected_option,string_of_selected_option;
+    int coins_for_que;
     Boolean result;
+
+    int num_of_true=0,coins_earned=0;
+    double percentage;
+
+    CountDownTimer countDownTimer;
 
 
     @Override
@@ -75,7 +84,6 @@ public class QuestionText extends AppCompatActivity {
 
 
         initialize();
-        Toast.makeText(getApplicationContext(),"Page opened",Toast.LENGTH_SHORT).show();
         getQuestionFromApi();
         setTimer();
         btnTick();
@@ -91,6 +99,9 @@ public class QuestionText extends AppCompatActivity {
         game_mode=getIntent().getStringExtra("game_mode");
         num_of_questions=getIntent().getIntExtra("num_of_questions",0);
         time_for_quiz=getIntent().getIntExtra("time_for_quiz",0);
+        bonus_coins=getIntent().getIntExtra("bonus_coins",0);
+
+        Toast.makeText(getApplicationContext(), "bonus="+bonus_coins, Toast.LENGTH_SHORT).show();
 
 
 
@@ -119,9 +130,10 @@ public class QuestionText extends AppCompatActivity {
                         ans_from_db=dummy_arr_que.get(i).getAnswer().toString();
                         selected_option="no";
                         string_of_selected_option="no";
+                        coins_for_que=dummy_arr_que.get(i).getCoins();
                         result=false;
 
-                        res=new Result(ans_from_db,selected_option,string_of_selected_option,result);
+                        res=new Result(ans_from_db,selected_option,string_of_selected_option,coins_for_que,result);
                         list_results.add(res);
                     }
 
@@ -129,7 +141,7 @@ public class QuestionText extends AppCompatActivity {
                     tv_game_mode_name.setText(game_mode+" : ");
                     tv_que_champ_name.setText(champ_name);
                     tv_que_number.setText("Q - "+(x+1)+"/2");
-                    tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                    tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                     tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                     tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                     tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -200,12 +212,48 @@ public class QuestionText extends AppCompatActivity {
                                 }
                             }
 
+                            if(x==dummy_arr_que.size()-2)
+                            {
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                tv_next.setText("Submit");
+
+                            }
 
                             //code to change the question when user click on next
+                            //if current question is last question then move to next page after that else change the question
                             if(x==dummy_arr_que.size()-1) {
-                                //make next button disable
+
                                 //code here to go on result page
-                                Toast.makeText(getApplicationContext(),"Last que arrived,next disabled",Toast.LENGTH_SHORT).show();
+
+                                //calculating result-------------------------------------------------------------
+
+                                //calculate total number of correct questions and store it in num_of_true
+                                for(int i=0;i<list_results.size();i++)
+                                {
+                                    if(list_results.get(i).result==true)
+                                    {
+                                        num_of_true++;
+                                        coins_earned=coins_earned+list_results.get(i).getCoins_for_que();
+                                    }
+                                }
+
+                                percentage=num_of_true/(double)list_results.size();
+                                percentage=percentage*100;
+
+                                countDownTimer.cancel();
+
+
+
+                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                i.putExtra("num_of_true",num_of_true);
+                                i.putExtra("coins_earned",coins_earned);
+                                i.putExtra("percentage",percentage);
+                                i.putExtra("from_page","with_flow");
+                                i.putExtra("bonus_coins",bonus_coins);
+                                i.putExtra("total_que",list_results.size());
+                                startActivity(i);
+
+
                             }
                             else {
 
@@ -214,7 +262,7 @@ public class QuestionText extends AppCompatActivity {
                                 tv_game_mode_name.setText(game_mode+" : ");
                                 tv_que_champ_name.setText(champ_name);
                                 tv_que_number.setText("Q - "+(x+1)+"/2");
-                                tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                                tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                                 tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                                 tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                                 tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -280,16 +328,46 @@ public class QuestionText extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
 
+                            if(x==dummy_arr_que.size()-2) {
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                tv_next.setText("Submit");
+
+                            }
+
                             //code to change the question when user click on skip
                             if(x==dummy_arr_que.size()-1) {
-                                //make next button disable
                                 //code here to go on result page
-                                Toast.makeText(getApplicationContext(),"Last que arrived,Skip will go to result",Toast.LENGTH_SHORT).show();
+
+                                //calculating result-------------------------------------------------------------
+
+                                //calculate total number of correct questions and store it in num_of_true
+                                for(int i=0;i<list_results.size();i++)
+                                {
+                                    if(list_results.get(i).result==true)
+                                    {
+                                        num_of_true++;
+                                        coins_earned=coins_earned+list_results.get(i).getCoins_for_que();
+                                    }
+                                }
+
+                                percentage=num_of_true/(double)list_results.size();
+                                percentage=percentage*100;
+
+
+
+                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                i.putExtra("num_of_true",num_of_true);
+                                i.putExtra("coins_earned",coins_earned);
+                                i.putExtra("percentage",percentage);
+                                i.putExtra("from_page","with_flow");
+                                i.putExtra("bonus_coins",bonus_coins);
+                                i.putExtra("total_que",list_results.size());
+                                startActivity(i);
                             }
                             else {
                                 x++;
                                 tv_que_number.setText("Q - "+(x+1)+"/2");
-                                tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                                tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                                 tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                                 tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                                 tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -365,7 +443,7 @@ public class QuestionText extends AppCompatActivity {
 
                                 x--;
                                 tv_que_number.setText("Q - "+(x+1)+"/2");
-                                tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                                tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                                 tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                                 tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                                 tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -427,9 +505,10 @@ public class QuestionText extends AppCompatActivity {
                         ans_from_db=dummy_arr_que.get(i).getAnswer().toString();
                         selected_option="no";
                         string_of_selected_option="no";
+                        coins_for_que=dummy_arr_que.get(i).getCoins();
                         result=false;
 
-                        res=new Result(ans_from_db,selected_option,string_of_selected_option,result);
+                        res=new Result(ans_from_db,selected_option,string_of_selected_option,coins_for_que,result);
                         list_results.add(res);
                     }
 
@@ -438,7 +517,7 @@ public class QuestionText extends AppCompatActivity {
                     tv_game_mode_name.setText(game_mode+" : ");
                     tv_que_champ_name.setText(champ_name);
                     tv_que_number.setText("Q - "+(x+1)+"/"+num_of_questions);
-                    tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                    tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                     tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                     tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                     tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -508,11 +587,41 @@ public class QuestionText extends AppCompatActivity {
                                 }
                             }
 
+                            if(x==dummy_arr_que.size()-2) {
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                tv_next.setText("Submit");
+
+                            }
+
                             //code to change the question when user click on next
                             if(x==dummy_arr_que.size()-1) {
-                                //make next button disable
                                 //code here to go on result page
-                                Toast.makeText(getApplicationContext(),"Last que arrived,next disabled",Toast.LENGTH_SHORT).show();
+
+                                //calculating result-------------------------------------------------------------
+
+                                //calculate total number of correct questions and store it in num_of_true
+                                for(int i=0;i<list_results.size();i++)
+                                {
+                                    if(list_results.get(i).result==true)
+                                    {
+                                        num_of_true++;
+                                        coins_earned=coins_earned+list_results.get(i).getCoins_for_que();
+                                    }
+                                }
+
+                                percentage=num_of_true/(double)list_results.size();
+                                percentage=percentage*100;
+
+
+
+                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                i.putExtra("num_of_true",num_of_true);
+                                i.putExtra("coins_earned",coins_earned);
+                                i.putExtra("percentage",percentage);
+                                i.putExtra("from_page","with_flow");
+                                i.putExtra("bonus_coins",bonus_coins);
+                                i.putExtra("total_que",list_results.size());
+                                startActivity(i);
                             }
                             else {
                                 x++;
@@ -520,7 +629,7 @@ public class QuestionText extends AppCompatActivity {
                                 tv_game_mode_name.setText(game_mode+" : ");
                                 tv_que_champ_name.setText(champ_name);
                                 tv_que_number.setText("Q -"+(x+1)+"/"+num_of_questions);
-                                tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                                tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                                 tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                                 tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                                 tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -585,18 +694,48 @@ public class QuestionText extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
 
+                            if(x==dummy_arr_que.size()-2) {
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                tv_next.setText("Submit");
+
+                            }
+
                             //code to change the question when user click on skip
                             if(x==dummy_arr_que.size()-1) {
-                                //make next button disable
                                 //code here to go on result page
-                                Toast.makeText(getApplicationContext(),"Last que arrived,Skip will go to result",Toast.LENGTH_SHORT).show();
+
+                                //calculating result-------------------------------------------------------------
+
+                                //calculate total number of correct questions and store it in num_of_true
+                                for(int i=0;i<list_results.size();i++)
+                                {
+                                    if(list_results.get(i).result==true)
+                                    {
+                                        num_of_true++;
+                                        coins_earned=coins_earned+list_results.get(i).getCoins_for_que();
+                                    }
+                                }
+
+                                percentage=num_of_true/(double)list_results.size();
+                                percentage=percentage*100;
+
+
+
+                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                i.putExtra("num_of_true",num_of_true);
+                                i.putExtra("coins_earned",coins_earned);
+                                i.putExtra("percentage",percentage);
+                                i.putExtra("from_page","with_flow");
+                                i.putExtra("bonus_coins",bonus_coins);
+                                i.putExtra("total_que",list_results.size());
+                                startActivity(i);
                             }
                             else {
                                 x++;
                                 tv_game_mode_name.setText(game_mode+" : ");
                                 tv_que_champ_name.setText(champ_name);
                                 tv_que_number.setText("Q -"+(x+1)+"/"+num_of_questions);
-                                tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                                tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                                 tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                                 tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                                 tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -675,7 +814,7 @@ public class QuestionText extends AppCompatActivity {
                                 tv_game_mode_name.setText(game_mode+" : ");
                                 tv_que_champ_name.setText(champ_name);
                                 tv_que_number.setText("Q -"+(x+1)+"/"+num_of_questions);
-                                tv_que_coins.setText(dummy_arr_que.get(x).getCoins().toString());
+                                tv_que_coins.setText(""+dummy_arr_que.get(x).getCoins());
                                 tv_que.setText(dummy_arr_que.get(x).getQuestion().toString());
                                 tv_que_opt1.setText("A : "+dummy_arr_que.get(x).getOption1().toString());
                                 tv_que_opt2.setText("B : "+dummy_arr_que.get(x).getOption2().toString());
@@ -811,23 +950,29 @@ public class QuestionText extends AppCompatActivity {
         img_que_next=(ImageView) findViewById(R.id.img_que_next);
         img_que_quit=(ImageView) findViewById(R.id.img_que_quit);
 
+        tv_next=(TextView) findViewById(R.id.tv_next);
+        tv_previous=(TextView) findViewById(R.id.tv_previous);
+        tv_skip=(TextView) findViewById(R.id.tv_skip);
+        tv_quit=(TextView) findViewById(R.id.tv_quit);
+
+
 
     }
 
-
     private void setTimer() {
 
-        if(game_mode.equals("Quick_hit"))
+        if(game_mode.equals("Quick Hit"))
         {
             timer=2;
         }
-        else if(game_mode.equals("Select_gift"))
+        else if(game_mode.equals("Select Gift and Play"))
         {
             timer=time_for_quiz;
         }
 
         long duration= TimeUnit.MINUTES.toMillis(timer);            //Initialize time duration
-        new CountDownTimer(duration, 1000) {
+
+        countDownTimer=new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished)
             {
@@ -842,18 +987,41 @@ public class QuestionText extends AppCompatActivity {
 
             }
 
+
+
             @Override
             public void onFinish()
             {
                 //when finish
                 //display toast
+
+                //calculate total number of correct questions and store it in num_of_true
+                for(int i=0;i<list_results.size();i++)
+                {
+                    if(list_results.get(i).result==true)
+                    {
+                        num_of_true++;
+                        coins_earned=coins_earned+list_results.get(i).getCoins_for_que();
+                    }
+                }
+
+                percentage=num_of_true/(double)list_results.size();
+                percentage=percentage*100;
+
                 Toast.makeText(getApplicationContext(), "Time Out", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+
+                i.putExtra("num_of_true",num_of_true);
+                i.putExtra("coins_earned",coins_earned);
+                i.putExtra("percentage",percentage);
+                i.putExtra("from_page","time_out");
+                i.putExtra("bonus_coins",bonus_coins);
+                i.putExtra("total_que",list_results.size());
+
+                startActivity(i);
             }
         }.start();
     }
-
-
-
 
     public void ShowPopupquitgame(View v){
         Button btn_quit_yes,btn_quit_no;
@@ -874,16 +1042,32 @@ public class QuestionText extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //calculate total number of correct questions and store it in num_of_true
+                for(int i=0;i<list_results.size();i++)
+                {
+                    if(list_results.get(i).result==true)
+                    {
+                        num_of_true++;
+                        coins_earned=coins_earned+list_results.get(i).getCoins_for_que();
+                    }
+                }
+
+                percentage=num_of_true/(double)list_results.size();
+                percentage=percentage*100;
+
+                countDownTimer.cancel();
+
                 Intent intent =new Intent(QuestionText.this,CalculateResult.class);
+                intent.putExtra("from_page","quit_page");
+                intent.putExtra("bonus_coins",bonus_coins);
+                intent.putExtra("num_of_true",num_of_true);
+                intent.putExtra("total_que",list_results.size());
                 startActivity(intent);
 
-                //Toast.makeText(QuestionText.this,"Quit Game ",Toast.LENGTH_SHORT).show();
             }
         });
 
     }
-
-
 
     public void ShowPopupwrongque(View v){
         Button btn_wrong_yes,btn_wrong_no;
@@ -907,12 +1091,39 @@ public class QuestionText extends AppCompatActivity {
 
                 wrong_question.dismiss();
 
-                Toast.makeText(QuestionText.this,"Question is Wrong .Click On Next Button",Toast.LENGTH_SHORT).show();
+                que_right_wrong=1;
+                bck2=dummy_arr_que.get(x);
+                bck2.setWrong_que(que_right_wrong);
+                postQueRightWrongResult(bck2);
+
+                Toast.makeText(QuestionText.this,"We will check at out end,Click On Next Button",Toast.LENGTH_SHORT).show();
 
             }
         });
         wrong_question.show();
 
     }
+
+    private void postQueRightWrongResult(Backend_Question bck2) {
+
+
+
+        Call<Backend_Question> backend_questionCall= api4.setQueRightWrong(bck2);
+        backend_questionCall.enqueue(new Callback<Backend_Question>() {
+            @Override
+            public void onResponse(Call<Backend_Question> call, Response<Backend_Question> response) {
+
+                System.out.println(response);
+            }
+
+            @Override
+            public void onFailure(Call<Backend_Question> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
 
 }

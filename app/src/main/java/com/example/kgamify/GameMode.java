@@ -19,8 +19,8 @@ public class GameMode extends AppCompatActivity {
     Dialog myDialog1; //select gift and play popup (showpopup1)
 
     String Label_of_champ,champ_name,game_mode;
-    int num_of_questions,time_for_quiz;
-    TextView tv_game_mode_quick_hit,tv_game_mode_select_gift;
+    int num_of_questions,time_for_quiz,bonus_coins;
+    TextView tv_game_mode_quick_hit,tv_game_mode_select_gift,tv_champ_name;
 
 
     @Override
@@ -39,9 +39,12 @@ public class GameMode extends AppCompatActivity {
         champ_name=getIntent().getStringExtra("champ_name");
         num_of_questions=getIntent().getIntExtra("num_of_questions",0);
         time_for_quiz=getIntent().getIntExtra("time_for_quiz",0);
+        bonus_coins=getIntent().getIntExtra("bonus_coins",0);
 
         myDialog = new Dialog(this);
         myDialog1 =new Dialog(this);
+
+        tv_champ_name.setText(champ_name);
 
 
         back =(ImageView) findViewById(R.id.back);
@@ -63,6 +66,8 @@ public class GameMode extends AppCompatActivity {
     private void initialize() {
         tv_game_mode_quick_hit=(TextView) findViewById(R.id.tv_game_mode_quick_hit);
         tv_game_mode_select_gift=(TextView) findViewById(R.id.tv_game_mode_select_gift);
+        tv_champ_name=(TextView) findViewById(R.id.tv_champ_select);
+
 
     }
 
@@ -94,6 +99,7 @@ public class GameMode extends AppCompatActivity {
                 i.putExtra("game_mode",game_mode);
                 i.putExtra("num_of_questions",num_of_questions);
                 i.putExtra("time_for_quiz",time_for_quiz);
+                i.putExtra("bonus_coins",bonus_coins);
                 startActivity(i);
             }
         });

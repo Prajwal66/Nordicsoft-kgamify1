@@ -6,7 +6,7 @@
 
 
     <TextView
-        android:id="@+id/pop_up_champ_name"
+        android:id="@+id/tv_pop_champ_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
@@ -29,11 +29,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pop_up_champ_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pop_champ_name"
         app:layout_constraintVertical_bias="0.01999998"></ImageView>
 
     <TextView
-        android:id="@+id/part"
+        android:id="@+id/tv_pop_participants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
@@ -56,11 +56,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pop_up_champ_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pop_champ_name"
         app:layout_constraintVertical_bias="0.02"></ImageView>
 
     <TextView
-        android:id="@+id/kcoin"
+        android:id="@+id/tv_pop_k_coins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toBottomOf="@+id/part"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pop_participants"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
@@ -106,7 +106,7 @@
                 android:textStyle="bold"></TextView>
 
             <TextView
-                android:id="@+id/desp"
+                android:id="@+id/tv_pop_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/description"
@@ -123,7 +123,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btn_info_continue"
+        android:id="@+id/btn_pop_continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"

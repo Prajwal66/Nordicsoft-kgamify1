@@ -3,27 +3,20 @@ package com.example.kgamify;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -36,9 +29,6 @@ public class Championships extends AppCompatActivity {
     NavigationView nav;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayouts;
-    Toolbar toolbar;
-    ImageView img_champ_sidemenu;
-    SearchView search_view_champ;
     TextView tv_select_champ;
     RecyclerView recycler_view_2;
 
@@ -47,8 +37,6 @@ public class Championships extends AppCompatActivity {
     Api api3;
     List<Backend_Championship> champ_arr;
 
-    //pop up contents
-    TextView part,kcoin,desp,pop_up_champ_name;
 
 
 
@@ -147,12 +135,6 @@ public class Championships extends AppCompatActivity {
 
         tv_select_champ=(TextView) findViewById(R.id.tv_select_champ);
         recycler_view_2=(RecyclerView) findViewById(R.id.recycler_view_2);
-
-        //pop up contents
-        part=(TextView) findViewById(R.id.part);
-        kcoin=(TextView) findViewById(R.id.kcoin);
-        desp=(TextView) findViewById(R.id.desp);
-        pop_up_champ_name=(TextView) findViewById(R.id.pop_up_champ_name);
 
 
     }

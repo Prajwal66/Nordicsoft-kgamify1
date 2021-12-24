@@ -5,12 +5,14 @@ public class Result {
     String ans_from_db;
     String selected_option;
     String string_of_selected_option;
+    int coins_for_que;
     boolean result;
 
-    public Result(String ans_from_db, String selected_option, String string_of_selected_option, boolean result) {
+    public Result(String ans_from_db, String selected_option, String string_of_selected_option,int coins_for_que, boolean result) {
         this.ans_from_db = ans_from_db;
         this.selected_option = selected_option;
         this.string_of_selected_option = string_of_selected_option;
+        this.coins_for_que=coins_for_que;
         this.result = result;
     }
 
@@ -36,6 +38,14 @@ public class Result {
 
     public void setString_of_selected_option(String string_of_selected_option) {
         this.string_of_selected_option = string_of_selected_option;
+    }
+
+    public int getCoins_for_que() {
+        return coins_for_que;
+    }
+
+    public void setCoins_for_que(int coins_for_que) {
+        this.coins_for_que = coins_for_que;
     }
 
     public boolean isResult() {
