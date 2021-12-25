@@ -96,13 +96,20 @@ public class Championships extends AppCompatActivity {
 
 
                     case R.id.logout:
-                         SharedPreferences.Editor editor=sharedPreferences.edit();
-                         editor.clear();
-                         editor.commit();
-                         finish();
-                         Toast.makeText(getApplicationContext(),"Log out successfully!!",Toast.LENGTH_SHORT).show();
-                         Intent i=new Intent(getApplicationContext(),MainActivity.class);
-                         startActivity(i);
+
+                        if(current_user_phone!=null){
+                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                            editor.clear();
+                            editor.commit();
+                            finish();
+                            Toast.makeText(getApplicationContext(),"Log out successfully!!",Toast.LENGTH_SHORT).show();
+                            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(i);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"You are not Logged In",Toast.LENGTH_SHORT).show();
+                        }
+
                         break;
 
                 }
