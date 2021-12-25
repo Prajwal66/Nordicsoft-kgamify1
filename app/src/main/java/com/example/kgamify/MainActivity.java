@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String key_phone="phone";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -403,6 +404,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(getApplicationContext(),"You can get only demo of championship not result , as you skipped Log in",Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(MainActivity.this,Categories.class);
                 startActivity(intent);
             }

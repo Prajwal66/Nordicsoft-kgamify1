@@ -133,7 +133,6 @@ public class GameMode extends AppCompatActivity {
                 in.putExtra("game_mode",game_mode);
                 in.putExtra("num_of_questions",num_of_questions);
                 in.putExtra("time_for_quiz",time_for_quiz);
-
                 startActivity(in);
             }
         });

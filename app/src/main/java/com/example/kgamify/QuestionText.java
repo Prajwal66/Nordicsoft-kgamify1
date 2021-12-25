@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -42,6 +43,11 @@ public class QuestionText extends AppCompatActivity {
     Api api4;
     List<Backend_Question> que_arr;
 
+    //shared pref variables
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name="my_pref";
+    private static final String key_phone="phone";
+
 
     int x=0;
     Random random;
@@ -53,7 +59,7 @@ public class QuestionText extends AppCompatActivity {
     Result res;
 
 
-    String champ_name,Label_of_champ,game_mode;
+    String champ_name,Label_of_champ,game_mode,current_user_phone;
     int num_of_questions,time_for_quiz,bonus_coins;
     long timer;
     String ans_from_db,selected_option,string_of_selected_option;
@@ -81,7 +87,8 @@ public class QuestionText extends AppCompatActivity {
         quit_game = new Dialog(this);
         wrong_question =new Dialog(this);
 
-
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        current_user_phone=sharedPreferences.getString(key_phone,null);
 
         initialize();
         getQuestionFromApi();
@@ -100,9 +107,6 @@ public class QuestionText extends AppCompatActivity {
         num_of_questions=getIntent().getIntExtra("num_of_questions",0);
         time_for_quiz=getIntent().getIntExtra("time_for_quiz",0);
         bonus_coins=getIntent().getIntExtra("bonus_coins",0);
-
-        Toast.makeText(getApplicationContext(), "bonus="+bonus_coins, Toast.LENGTH_SHORT).show();
-
 
 
         api4=RetrofitInstance.getRetrofit().create(Api.class);
@@ -214,7 +218,7 @@ public class QuestionText extends AppCompatActivity {
 
                             if(x==dummy_arr_que.size()-2)
                             {
-                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_SHORT).show();
                                 tv_next.setText("Submit");
 
                             }
@@ -242,16 +246,26 @@ public class QuestionText extends AppCompatActivity {
 
                                 countDownTimer.cancel();
 
+                                //if current user is signed in then only show result otherwise go to sign in page
+                                if(current_user_phone!=null)
+                                {
+                                    Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                    i.putExtra("num_of_true",num_of_true);
+                                    i.putExtra("coins_earned",coins_earned);
+                                    i.putExtra("percentage",percentage);
+                                    i.putExtra("from_page","with_flow");
+                                    i.putExtra("bonus_coins",bonus_coins);
+                                    i.putExtra("total_que",list_results.size());
+                                    startActivity(i);
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),"Please sign in first to play championships",Toast.LENGTH_LONG).show();
+                                    Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(i);
+                                }
 
 
-                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
-                                i.putExtra("num_of_true",num_of_true);
-                                i.putExtra("coins_earned",coins_earned);
-                                i.putExtra("percentage",percentage);
-                                i.putExtra("from_page","with_flow");
-                                i.putExtra("bonus_coins",bonus_coins);
-                                i.putExtra("total_que",list_results.size());
-                                startActivity(i);
 
 
                             }
@@ -329,7 +343,7 @@ public class QuestionText extends AppCompatActivity {
                         public void onClick(View v) {
 
                             if(x==dummy_arr_que.size()-2) {
-                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_SHORT).show();
                                 tv_next.setText("Submit");
 
                             }
@@ -354,15 +368,24 @@ public class QuestionText extends AppCompatActivity {
                                 percentage=percentage*100;
 
 
-
-                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
-                                i.putExtra("num_of_true",num_of_true);
-                                i.putExtra("coins_earned",coins_earned);
-                                i.putExtra("percentage",percentage);
-                                i.putExtra("from_page","with_flow");
-                                i.putExtra("bonus_coins",bonus_coins);
-                                i.putExtra("total_que",list_results.size());
-                                startActivity(i);
+                                //if current user is signed in then only show result otherwise go to sign in page
+                                if(current_user_phone!=null)
+                                {
+                                    Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                    i.putExtra("num_of_true",num_of_true);
+                                    i.putExtra("coins_earned",coins_earned);
+                                    i.putExtra("percentage",percentage);
+                                    i.putExtra("from_page","with_flow");
+                                    i.putExtra("bonus_coins",bonus_coins);
+                                    i.putExtra("total_que",list_results.size());
+                                    startActivity(i);
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),"Please sign in first to play championships",Toast.LENGTH_LONG).show();
+                                    Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(i);
+                                }
                             }
                             else {
                                 x++;
@@ -588,7 +611,7 @@ public class QuestionText extends AppCompatActivity {
                             }
 
                             if(x==dummy_arr_que.size()-2) {
-                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_SHORT).show();
                                 tv_next.setText("Submit");
 
                             }
@@ -612,16 +635,24 @@ public class QuestionText extends AppCompatActivity {
                                 percentage=num_of_true/(double)list_results.size();
                                 percentage=percentage*100;
 
-
-
-                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
-                                i.putExtra("num_of_true",num_of_true);
-                                i.putExtra("coins_earned",coins_earned);
-                                i.putExtra("percentage",percentage);
-                                i.putExtra("from_page","with_flow");
-                                i.putExtra("bonus_coins",bonus_coins);
-                                i.putExtra("total_que",list_results.size());
-                                startActivity(i);
+                                //if current user is signed in then only show result otherwise go to sign in page
+                                if(current_user_phone!=null)
+                                {
+                                    Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                    i.putExtra("num_of_true",num_of_true);
+                                    i.putExtra("coins_earned",coins_earned);
+                                    i.putExtra("percentage",percentage);
+                                    i.putExtra("from_page","with_flow");
+                                    i.putExtra("bonus_coins",bonus_coins);
+                                    i.putExtra("total_que",list_results.size());
+                                    startActivity(i);
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),"Please sign in first to play championships",Toast.LENGTH_LONG).show();
+                                    Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(i);
+                                }
                             }
                             else {
                                 x++;
@@ -695,7 +726,7 @@ public class QuestionText extends AppCompatActivity {
                         public void onClick(View v) {
 
                             if(x==dummy_arr_que.size()-2) {
-                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"This is last question",Toast.LENGTH_SHORT).show();
                                 tv_next.setText("Submit");
 
                             }
@@ -720,15 +751,24 @@ public class QuestionText extends AppCompatActivity {
                                 percentage=percentage*100;
 
 
-
-                                Intent i=new Intent(getApplicationContext(),CalculateResult.class);
-                                i.putExtra("num_of_true",num_of_true);
-                                i.putExtra("coins_earned",coins_earned);
-                                i.putExtra("percentage",percentage);
-                                i.putExtra("from_page","with_flow");
-                                i.putExtra("bonus_coins",bonus_coins);
-                                i.putExtra("total_que",list_results.size());
-                                startActivity(i);
+                                //if current user is signed in then only show result otherwise go to sign in page
+                                if(current_user_phone!=null)
+                                {
+                                    Intent i=new Intent(getApplicationContext(),CalculateResult.class);
+                                    i.putExtra("num_of_true",num_of_true);
+                                    i.putExtra("coins_earned",coins_earned);
+                                    i.putExtra("percentage",percentage);
+                                    i.putExtra("from_page","with_flow");
+                                    i.putExtra("bonus_coins",bonus_coins);
+                                    i.putExtra("total_que",list_results.size());
+                                    startActivity(i);
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),"Please sign in first to play championships",Toast.LENGTH_LONG).show();
+                                    Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(i);
+                                }
                             }
                             else {
                                 x++;

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +45,11 @@ public class Categories extends AppCompatActivity {
     Api api2;
     List<Backend_Category> category_arr;
 
+    //shared pref variables
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name="my_pref";
+    private static final String key_phone="phone";
+
     RecyclerView recycler_view_1;
 
     @Override
@@ -55,6 +61,8 @@ public class Categories extends AppCompatActivity {
         drawers = findViewById(R.id.my_drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        String current_user_phone=sharedPreferences.getString(key_phone,null);
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawers, R.string.open, R.string.close);
 
@@ -83,6 +91,17 @@ public class Categories extends AppCompatActivity {
                     case R.id.profile:
                         Intent intent2 = new Intent(Categories.this,profilepage.class);
                         startActivity(intent2);
+                        break;
+
+
+                    case R.id.logout:
+                         SharedPreferences.Editor editor=sharedPreferences.edit();
+                         editor.clear();
+                         editor.commit();
+                         finish();
+                         Toast.makeText(getApplicationContext(),"Log out successfully!!",Toast.LENGTH_SHORT).show();
+                         Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                         startActivity(i);
                         break;
                 }
                 return true;

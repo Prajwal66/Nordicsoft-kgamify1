@@ -1,8 +1,10 @@
 package com.example.kgamify;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -32,12 +34,23 @@ public class profilepage extends AppCompatActivity
     TabItem tabItem1,tabItem2,tabItem3;
     ViewPager viewPager;
     PageAdapter pageAdapter;
+
+    //shared pref variables
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name="my_pref";
+    private static final String key_phone="phone";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilepage);
+
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        String current_user_phone=sharedPreferences.getString(key_phone,null);
+
 
 
         drawers = findViewById(R.id.my_drawer_layout);
@@ -71,6 +84,17 @@ public class profilepage extends AppCompatActivity
                     case R.id.profile:
                         Intent intent2 = new Intent(profilepage.this,profilepage.class);
                         startActivity(intent2);
+                        break;
+
+
+                    case R.id.logout:
+                        SharedPreferences.Editor editor=sharedPreferences.edit();
+                        editor.clear();
+                        editor.commit();
+                        finish();
+                        Toast.makeText(getApplicationContext(),"Log out successfully!!",Toast.LENGTH_SHORT).show();
+                        Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(i);
                         break;
                 }
                 return true;

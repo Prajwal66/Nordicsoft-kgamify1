@@ -35,6 +35,7 @@ public class OTP_verification extends AppCompatActivity {
 
     Context context;
     Resources resources;
+    CountDownTimer countDownTimer;
 
 
     @Override
@@ -47,10 +48,11 @@ public class OTP_verification extends AppCompatActivity {
         getSupportActionBar().hide();        //Code to remove Action Bar
 
         initializeView();
+        setTimer();
         move();
         dataTransfer();
         numberotpMove();
-        setTimer();
+
 
         if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("en"))
         {
@@ -145,6 +147,7 @@ public class OTP_verification extends AppCompatActivity {
             public void onClick(View view) {
                 if(!input_otp_1.getText().toString().trim().isEmpty() && !input_otp_2.getText().toString().trim().isEmpty() && !input_otp_3.getText().toString().trim().isEmpty() && !input_otp_4.getText().toString().trim().isEmpty())
                 {
+                    countDownTimer.cancel();
                     Intent i=new Intent(OTP_verification.this,Categories.class);
                     startActivity(i);
                 }
@@ -234,7 +237,7 @@ public class OTP_verification extends AppCompatActivity {
 
     private void setTimer() {
         long duration= TimeUnit.MINUTES.toMillis(10);            //Initialize time duration
-        new CountDownTimer(duration, 1000) {
+        countDownTimer=new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished)
             {
