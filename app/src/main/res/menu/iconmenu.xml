@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="go to profile!" />
+    <item
         android:id="@+id/menu_categories"
         android:icon="@drawable/nav_cato"
         android:title="Categories" />
-    <item
-        android:id="@+id/menu_Notifications"
-        android:icon="@drawable/nav_notifications"
-        android:title="Notifications" />
-    <item
-        android:id="@+id/menu_gifts"
-        android:icon="@drawable/nav_gifts"
-        android:title="Gifts and Rewards" />
 
-    <item
-        android:id="@+id/menu_jobs"
-        android:icon="@drawable/nav_jobs"
-        android:title="Jobs" />
-
-    <item
-        android:id="@+id/menu_courses"
-        android:icon="@drawable/nav_onlinec"
-        android:title="Courses" />
 
     <item
         android:id="@+id/menu_wallet"
         android:icon="@drawable/nav_wallet"
         android:title="Wallet" />
+
+    <item android:icon="@drawable/logout"
+        android:title="Log out"
+        android:id="@+id/logout"/>
+
 
 
 </menu>

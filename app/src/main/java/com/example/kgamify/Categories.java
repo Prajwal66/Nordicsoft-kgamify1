@@ -69,15 +69,20 @@ public class Categories extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+
                     case R.id.menu_categories:
                         Intent intent = new Intent(Categories.this, Categories.class);
                         startActivity(intent);
                         break;
-                    case R.id.menu_Notifications:
-                        Toast.makeText(getApplicationContext(), "NOTIFICATIONS", Toast.LENGTH_LONG).show();
-                        break;
+
                     case R.id.menu_wallet:
-                        Toast.makeText(getApplicationContext(), "99+", Toast.LENGTH_LONG).show();
+                        Intent intent1 = new Intent(Categories.this,walletpage.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.profile:
+                        Intent intent2 = new Intent(Categories.this,profilepage.class);
+                        startActivity(intent2);
                         break;
                 }
                 return true;

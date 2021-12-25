@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kgamify">
         <activity
+            android:name=".walletpage"
+            android:exported="false" />
+        <activity
             android:name=".ClaimGift"
             android:exported="true" />
         <activity
@@ -47,6 +50,8 @@
         <activity
             android:name=".OTP_verification"
             android:exported="true" />
+        <activity android:name=".profilepage"
+            android:exported="true"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -62,5 +67,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
+
 
 </manifest>
