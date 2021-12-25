@@ -50,13 +50,9 @@ public class CalculateResult extends AppCompatActivity {
         bonus_coins=getIntent().getIntExtra("bonus_coins",0);
         total_que=getIntent().getIntExtra("total_que",0);
 
+
         sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
         current_user_phone=sharedPreferences.getString(key_phone,null);
-
-        Toast.makeText(getApplicationContext(), "bonus="+bonus_coins, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), "current user="+current_user_phone, Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "Score="+num_of_true+"\nCoins="+coins_earned+"\nPerc="+percentage+"\nfrom="+from_page, Toast.LENGTH_SHORT).show();
 
         initialize();
         move();
@@ -106,8 +102,6 @@ public class CalculateResult extends AppCompatActivity {
             @Override
             public void onResponse(Call<Logins> call, Response<Logins> response) {
                 System.out.println(response);
-                Toast.makeText(getApplicationContext(),"res="+response+"\ncoins="+single_user_info.getWallet_coins(),Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
@@ -187,7 +181,6 @@ public class CalculateResult extends AppCompatActivity {
             }
         }
 
-        Toast.makeText(getApplicationContext(), "pat="+from_page, Toast.LENGTH_SHORT).show();
     }
 
     private void initialize() {

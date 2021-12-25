@@ -45,6 +45,7 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.holder2> {
         String champ_name=champ_arr.get(position).getChampionship().toString();
         String champ_description=champ_arr.get(position).getDescription().toString();
 
+
         int num_of_questions=champ_arr.get(position).getNumber_of_questions();
         int time_for_quiz=champ_arr.get(position).getTotal_time();
         int bonus_coins=champ_arr.get(position).getTotal_coins();
