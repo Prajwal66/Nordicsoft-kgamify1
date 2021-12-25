@@ -3,18 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout-large/activity_game_mode.xml" value="0.24107142857142858" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout-normal/activity_game_mode.xml" value="0.11005434782608696" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout-small/activity_game_mode.xml" value="0.3996710526315789" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout-xlarge/activity_game_mode.xml" value="0.1" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/activity_calculate_result.xml" value="0.17552083333333332" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/activity_champ_info.xml" value="0.17552083333333332" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/activity_game_mode.xml" value="0.3333333333333333" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/activity_main.xml" value="0.12001811594202899" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/activity_question_text.xml" value="0.17552083333333332" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/championship_expand.xml" value="0.3333333333333333" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/selectgift_popup.xml" value="0.11005434782608696" />
-        <entry key="..\:/Android Studio Projects/Git Stuti24-2/K-Gamify/app/src/main/res/layout/submit_quiz_popup.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Studio Projects/Git Stuti24/K-Gamify/app/src/main/res/layout-large/championship_expand.xml" value="0.42125" />
         <entry key="..\:/Android Studio Projects/Git Stuti24/K-Gamify/app/src/main/res/layout-normal/championship_expand.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Studio Projects/Git Stuti24/K-Gamify/app/src/main/res/layout-small/championship_expand.xml" value="0.8585526315789473" />
@@ -73,6 +61,11 @@
         <entry key="..\:/Users/HP/Desktop/Git Project/K-Gamify/app/src/main/res/layout/main_category.xml" value="0.22" />
         <entry key="..\:/Users/HP/Desktop/Git Project/K-Gamify/app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="..\:/Users/HP/Desktop/Git Project/K-Gamify/app/src/main/res/menu/iconmenu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/drawable/borderboxpredication.xml" value="0.1125" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/drawable/filledrect.xml" value="0.1125" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/drawable/ic_profile.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/drawable/newrect.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/drawable/rectanglebg.xml" value="0.1125" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout-large/activity_championships.xml" value="0.23125" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout-normal/activity_championships.xml" value="0.1" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout-small/activity_championships.xml" value="0.6607142857142857" />
@@ -80,8 +73,19 @@
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_categories.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_championships.xml" value="0.25" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_game_mode.xml" value="0.1" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_otp_verification.xml" value="0.1" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_profilepage.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_question_text.xml" value="0.19610507246376813" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/activity_walletpage.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/custom_action_bar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/fragment_ftab1.xml" value="0.25" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/fragment_ftab2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/fragment_ftab3.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/fragment_page_adapter.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/layout/nav_header.xml" value="0.33" />
+        <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/menu/iconmenu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/Desktop/Git project/K-Gamify/app/src/main/res/menu/iconmenu1.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/hp/Desktop/Git project/K-Gamify/app/src/main/res/drawable-v24/ic_baseline_expand_less_24.xml" value="0.25" />
         <entry key="..\:/Users/hp/Desktop/Git project/K-Gamify/app/src/main/res/drawable/background_box.xml" value="0.25" />
@@ -119,49 +123,6 @@
         <entry key="..\:/Users/hp/Desktop/Git project/K-Gamify/app/src/main/res/layout/quickhit_popup.xml" value="0.16304347826086957" />
         <entry key="..\:/Users/hp/Desktop/Git project/K-Gamify/app/src/main/res/layout/selectgift_popup.xml" value="0.16304347826086957" />
         <entry key="..\:/Users/hp/Desktop/Git project/K-Gamify/app/src/main/res/layout/update_popup.xml" value="0.16304347826086957" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/drawable-v24/ic_questionmark.xml" value="0.2703125" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/drawable-v24/ic_trophy.xml" value="0.2703125" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-large/activity_categories.xml" value="0.4" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-large/activity_champ_info.xml" value="0.536" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-large/activity_championships.xml" value="0.2986111111111111" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-large/activity_game_mode.xml" value="0.560515873015873" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-large/championship_expand.xml" value="0.72" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-large/main_category.xml" value="0.37003968253968256" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-normal/activity_categories.xml" value="0.16893115942028986" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-normal/activity_champ_info.xml" value="0.25226449275362317" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-normal/activity_championships.xml" value="0.13632246376811594" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-normal/activity_game_mode.xml" value="0.13632246376811594" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-normal/championship_expand.xml" value="0.264" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-normal/main_category.xml" value="0.16893115942028986" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-small/activity_categories.xml" value="0.6134868421052632" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-small/activity_champ_info.xml" value="0.8800000000000001" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-small/activity_championships.xml" value="0.9292763157894737" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-small/activity_game_mode.xml" value="0.9292763157894737" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-small/championship_expand.xml" value="0.6134868421052632" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-small/main_category.xml" value="0.6134868421052632" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-xlarge/activity_categories.xml" value="0.12739071038251365" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-xlarge/activity_champ_info.xml" value="0.19023224043715847" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-xlarge/activity_championships.xml" value="0.10280054644808743" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-xlarge/activity_game_mode.xml" value="0.190625" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-xlarge/championship_expand.xml" value="0.264" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout-xlarge/main_category.xml" value="0.12739071038251365" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_calculate_result.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_categories.xml" value="0.16893115942028986" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_champ_info.xml" value="0.25226449275362317" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_championships.xml" value="0.13632246376811594" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_claim_gift.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_game_mode.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/activity_question_text.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/championship_expand.xml" value="0.264" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/claim_git_popup.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/info.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/main_category.xml" value="0.16893115942028986" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/quickhit_popup.xml" value="0.1322463768115942" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/quit_game_popup.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/selectgift_popup.xml" value="0.24818840579710144" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/submit_quiz_popup.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/update_popup.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/Desktop/GitHub final Project/K-Gamify/app/src/main/res/layout/wrong_que_popup.xml" value="0.4" />
       </map>
     </option>
   </component>
