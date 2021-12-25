@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -18,6 +20,7 @@ public class walletpage extends AppCompatActivity {
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
     DrawerLayout drawers;
+    Button btn_wallet_continue;
 
 
     @Override
@@ -27,7 +30,15 @@ public class walletpage extends AppCompatActivity {
 
         drawers = findViewById(R.id.my_drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        btn_wallet_continue=(Button)findViewById(R.id.btn_wallet_continue);
 
+        btn_wallet_continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(walletpage.this,Categories.class);
+                startActivity(i);
+            }
+        });
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawers, R.string.open, R.string.close);
 

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <TextView
+        android:id="@+id/tv_game_mode_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quick Hit -"
+        android:textSize="55dp"
+        android:textColor="#FF8200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" />
+
+    <ImageView
+        android:id="@+id/ads"
+        android:layout_width="765dp"
+        android:layout_height="139dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_mode_name"
+        app:layout_constraintVertical_bias="0.036"
+        app:srcCompat="@drawable/borader" />
+
+    <ImageView
+        android:id="@+id/clickHere"
+        android:layout_width="764dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_mode_name"
+        app:layout_constraintVertical_bias="0.16000003"
+        app:srcCompat="@drawable/box2" />
+
+    <TextView
+        android:id="@+id/tv_que_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="Q -1/2"
+        android:textColor="#FF8200"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@+id/clickHere"
+        app:layout_constraintEnd_toEndOf="@+id/clickHere"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="@+id/clickHere"
+        app:layout_constraintTop_toTopOf="@+id/clickHere" />
+
+    <TextView
+        android:id="@+id/txt_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:gravity="center"
+        android:text="00:60"
+        android:textColor="#7CB53A"
+        android:textSize="55sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/clickHere"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toEndOf="@+id/tv_que_number"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="89dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/clickHere"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toEndOf="@+id/txt_timer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.224"
+        app:srcCompat="@drawable/kcoin" />
+
+    <TextView
+        android:id="@+id/tv_que_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="20"
+        android:textColor="#FF8200"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/clickHere"
+        app:layout_constraintHorizontal_bias="0.237"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.226" />
+
+    <ScrollView
+        android:id="@+id/scrollviewque"
+        android:layout_width="0dp"
+        android:layout_height="900dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/clickHere"
+        app:layout_constraintVertical_bias="0.125">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_que"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="A two lane,one way road with radius of 50 m is  predomintaly carrying lorries with wheelbase of 5m The speed of lorries is restricted to be between 60 kmph to 80 kmph. The mechainical widening and psychological widening  required at 6 kmph are designated as  Wme, 60 andWps  60, Respectively. The  mechnical widening and pyschological widening required at 80 kmph are designtaed as Wme,80, and Wps 80 Respectively. The correct values of Wme.60, Wps,60, Wme,80,respectively are  "
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/option"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Options"
+                    android:textColor="#090909"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_que_opt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="A. 0.89m, 0.50 m, 1.19m and 0.50 m"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/tv_que_opt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="B. 0.89m, 0.50 m, 1.19m and 0.50 m"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/tv_que_opt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="C. 0.89m, 0.50 m, 1.19m and 0.50 m"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/tv_que_opt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="D. 0.89m, 0.50 m, 1.19m and 0.50 m"
+                    android:textSize="45sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/scrollviewque"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/box2"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/heading_orange"
+                android:textSize="25dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/button2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/box2"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="@color/heading_orange"
+                android:textSize="25dp"></TextView>
+
+            <TextView
+                android:id="@+id/button3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/box2"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/heading_orange"
+                android:textSize="25dp"></TextView>
+
+            <TextView
+                android:id="@+id/button4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/box2"
+                android:gravity="center"
+                android:text="D"
+                android:textColor="@color/heading_orange"
+                android:textSize="25dp"></TextView>
+
+
+            <TextView
+                android:id="@+id/button5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/wrong_que"
+                android:gravity="center"
+                android:onClick="ShowPopupwrongque"
+                android:text="E"
+                android:textColor="@color/white"
+                android:textSize="25dp"></TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/quit_que"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:onClick="ShowPopupquitgame"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_que_quit"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_quit_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/tv_quit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Quit"
+                    android:textColor="#F44336"
+                    android:textSize="50dp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/previous_que"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_que_previous"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_previous_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/tv_previous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Previous"
+                    android:textColor="@color/category"
+                    android:textSize="50dp"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/skip_que"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_que_skip"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_skip_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/tv_skip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Skip"
+                    android:textColor="@color/category"
+                    android:textSize="50dp"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/next_que"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_que_next"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_next_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/tv_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Next"
+                    android:textColor="@color/category"
+                    android:textSize="50dp"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/tv_que_champ_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Champ Name"
+        android:textColor="#FF8200"
+        android:textSize="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toEndOf="@+id/tv_game_mode_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
