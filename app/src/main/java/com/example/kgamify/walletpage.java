@@ -58,7 +58,18 @@ public class walletpage extends AppCompatActivity {
 
         initialize();
         move();
-        getCoinsFromApi();
+
+        if(current_user_phone!=null)
+        {
+            getCoinsFromApi();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Please sign in first to see wallet",Toast.LENGTH_LONG).show();
+            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+        }
+
 
 
 
