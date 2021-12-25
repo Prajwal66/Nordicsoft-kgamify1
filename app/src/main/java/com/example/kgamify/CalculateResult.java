@@ -164,7 +164,7 @@ public class CalculateResult extends AppCompatActivity {
 
                 coins_earned=coins_earned+bonus_coins;
 
-                tv_msg.setText("Congratulations \n you got bonus of"+bonus_coins+" coins!!");
+                tv_msg.setText("Congratulations \n You Got Bonus of \n"+bonus_coins+" coins!!");
                 tv_score.setText(num_of_true+"/"+total_que);
                 tv_coins_earned.setText(coins_earned+"coins");
 

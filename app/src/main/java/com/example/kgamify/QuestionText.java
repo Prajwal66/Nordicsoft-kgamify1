@@ -873,10 +873,12 @@ public class QuestionText extends AppCompatActivity {
                 if (btn1.getText().equals("A"))
                 {
                     btn1.setText("✔");
+
                 }
                 else if (btn1.getText().equals("✔"))
                 {
                     btn1.setText("A");
+
                 }
             }
         });
@@ -888,10 +890,12 @@ public class QuestionText extends AppCompatActivity {
                 if (btn2.getText().equals("B"))
                 {
                     btn2.setText("✔");
+
                 }
                 else if (btn2.getText().equals("✔"))
                 {
                     btn2.setText("B");
+
                 }
             }
         });
@@ -903,10 +907,12 @@ public class QuestionText extends AppCompatActivity {
                 if (btn3.getText().equals("C"))
                 {
                     btn3.setText("✔");
+
                 }
                 else if (btn3.getText().equals("✔"))
                 {
                     btn3.setText("C");
+
                 }
             }
         });
@@ -918,10 +924,12 @@ public class QuestionText extends AppCompatActivity {
                 if (btn4.getText().equals("D"))
                 {
                     btn4.setText("✔");
+
                 }
                 else if (btn4.getText().equals("✔"))
                 {
                     btn4.setText("D");
+
                 }
             }
         });
