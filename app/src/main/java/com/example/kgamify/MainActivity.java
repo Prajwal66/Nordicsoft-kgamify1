@@ -103,6 +103,11 @@ public class MainActivity extends AppCompatActivity {
         postDataToApi();
 
 
+
+
+
+
+
         if (Localehelper.getLanguage(MainActivity.this).equalsIgnoreCase("en")) {
             context = Localehelper.setLocale(MainActivity.this, "en");
             resources = context.getResources();
@@ -228,6 +233,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String number=edtText_enter_phone_no.getText().toString();
+
+
                 int wallet_coins=0;
                 postData(number,ccp.getSelectedCountryCode().toString(),wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address);
 
