@@ -6,7 +6,9 @@
     android:background="@color/white"
     android:gravity="bottom"
     android:orientation="vertical"
+    tools:context=".profilepage"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
+
     android:layout_height="170dp">
     <ImageView
         android:id="@+id/clickHere"
@@ -56,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="OnClick" />
 
     <View
         android:id="@+id/view"

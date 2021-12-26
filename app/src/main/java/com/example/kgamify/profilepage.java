@@ -1,8 +1,12 @@
 package com.example.kgamify;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -17,27 +21,34 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 
-public class profilepage extends AppCompatActivity
-{
-
-
+public class profilepage extends AppCompatActivity {
+    TextView textView;
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
     DrawerLayout drawers;
 
 
-
     TabLayout tabLayout;
-    TabItem tabItem1,tabItem2,tabItem3;
+    TabItem tabItem1, tabItem2, tabItem3;
     ViewPager viewPager;
     PageAdapter pageAdapter;
+
+    //shared pref variables
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name = "my_pref";
+    private static final String key_phone = "phone";
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilepage);
+
+
+        sharedPreferences = getSharedPreferences(shared_pref_name, MODE_PRIVATE);
+        String current_user_phone = sharedPreferences.getString(key_phone, null);
 
 
         drawers = findViewById(R.id.my_drawer_layout);
@@ -64,13 +75,28 @@ public class profilepage extends AppCompatActivity
                         break;
 
                     case R.id.menu_wallet:
-                        Intent intent1 = new Intent(profilepage.this,walletpage.class);
+                        Intent intent1 = new Intent(profilepage.this, walletpage.class);
                         startActivity(intent1);
                         break;
 
                     case R.id.profile:
-                        Intent intent2 = new Intent(profilepage.this,profilepage.class);
+                        Intent intent2 = new Intent(profilepage.this, profilepage.class);
                         startActivity(intent2);
+                        break;
+
+
+                    case R.id.logout:
+                        if (current_user_phone != null) {
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.clear();
+                            editor.commit();
+                            finish();
+                            Toast.makeText(getApplicationContext(), "Log out successfully!!", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(i);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "You are not Logged In", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                 }
                 return true;
@@ -78,15 +104,15 @@ public class profilepage extends AppCompatActivity
         });
 
 
-       // getSupportActionBar().hide();
+        // getSupportActionBar().hide();
 
-        tabLayout= findViewById(R.id.tablayout1);
-        tabItem1= findViewById(R.id.tab1);
-        tabItem2= findViewById(R.id.tab2);
-        tabItem3= findViewById(R.id.tab3);
-        viewPager= findViewById(R.id.vpager);
+        tabLayout = findViewById(R.id.tablayout1);
+        tabItem1 = findViewById(R.id.tab1);
+        tabItem2 = findViewById(R.id.tab2);
+        tabItem3 = findViewById(R.id.tab3);
+        viewPager = findViewById(R.id.vpager);
 
-        pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -94,7 +120,7 @@ public class profilepage extends AppCompatActivity
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition()==0 || tab.getPosition()==1 || tab.getPosition()==2)
+                if (tab.getPosition() == 0 || tab.getPosition() == 1 || tab.getPosition() == 2)
                     pageAdapter.notifyDataSetChanged();
             }
 
@@ -110,6 +136,8 @@ public class profilepage extends AppCompatActivity
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         //listen for scroll or page change
     }
+
+
 
 
     @Override

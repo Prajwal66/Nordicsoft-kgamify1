@@ -40,6 +40,7 @@ public class Result {
         this.string_of_selected_option = string_of_selected_option;
     }
 
+
     public int getCoins_for_que() {
         return coins_for_que;
     }

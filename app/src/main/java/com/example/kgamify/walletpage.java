@@ -7,10 +7,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class walletpage extends AppCompatActivity {
 
@@ -18,6 +29,21 @@ public class walletpage extends AppCompatActivity {
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
     DrawerLayout drawers;
+    Button btn_wallet_continue;
+    TextView tv_wallet_coins;
+
+    //Api variables
+    Api api7;
+    String current_user_phone;
+    List<Logins> all_user_info;
+    Logins single_user_info;
+    int current_user_coins;
+
+    //shared pref variables
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name="my_pref";
+    private static final String key_phone="phone";
+
 
 
     @Override
@@ -25,8 +51,28 @@ public class walletpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walletpage);
 
-        drawers = findViewById(R.id.my_drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
+
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        current_user_phone=sharedPreferences.getString(key_phone,null);
+
+
+        initialize();
+        move();
+
+        if(current_user_phone!=null)
+        {
+            getCoinsFromApi();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Please sign in first to see wallet",Toast.LENGTH_LONG).show();
+            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+        }
+
+
+
+
 
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawers, R.string.open, R.string.close);
@@ -57,6 +103,24 @@ public class walletpage extends AppCompatActivity {
                         Intent intent2 = new Intent(walletpage.this,profilepage.class);
                         startActivity(intent2);
                         break;
+
+
+                    case R.id.logout:
+                        if(current_user_phone!=null){
+                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                            editor.clear();
+                            editor.commit();
+                            finish();
+                            Toast.makeText(getApplicationContext(),"Log out successfully!!",Toast.LENGTH_SHORT).show();
+                            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(i);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"You are not Logged In",Toast.LENGTH_SHORT).show();
+                        }
+                         break;
+
+
                 }
                 return true;
             }
@@ -65,6 +129,59 @@ public class walletpage extends AppCompatActivity {
 
 
     }
+
+    private void getCoinsFromApi() {
+
+        api7=RetrofitInstance.getRetrofit().create(Api.class);
+        Call<LoginsWrapper> loginsWrapperCall= api7.getCurrentUser();
+
+        loginsWrapperCall.enqueue(new Callback<LoginsWrapper>() {
+            @Override
+            public void onResponse(Call<LoginsWrapper> call, Response<LoginsWrapper> response) {
+                all_user_info=response.body().getLogins();
+
+                for(int i=0;i<all_user_info.size();i++)
+                {
+                    if(current_user_phone.equals(all_user_info.get(i).getPhone()))
+                    {
+                        single_user_info=all_user_info.get(i);
+                        break;
+                    }
+                }
+
+                current_user_coins=single_user_info.getWallet_coins();
+
+                tv_wallet_coins.setText(" "+current_user_coins);
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginsWrapper> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+    private void initialize() {
+        drawers = findViewById(R.id.my_drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        btn_wallet_continue=(Button)findViewById(R.id.btn_wallet_continue);
+        tv_wallet_coins=(TextView) findViewById(R.id.tv_walllet_coins);
+    }
+
+    private void move() {
+        btn_wallet_continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(walletpage.this,Categories.class);
+                startActivity(i);
+            }
+        });
+    }
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 

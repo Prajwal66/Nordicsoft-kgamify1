@@ -39,4 +39,5 @@ public interface Api {
     @POST("login")
     Call<Logins> setWalletCoins(@Body Logins logins);
 
+
 }

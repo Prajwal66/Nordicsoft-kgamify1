@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -37,6 +38,13 @@ public class Championships extends AppCompatActivity {
     Api api3;
     List<Backend_Championship> champ_arr;
 
+    //shared pref variables
+    SharedPreferences sharedPreferences;
+    private static final String shared_pref_name="my_pref";
+    private static final String key_phone="phone";
+
+
+
 
 
 
@@ -45,6 +53,11 @@ public class Championships extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_championships);
+
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        String current_user_phone=sharedPreferences.getString(key_phone,null);
+
+
 
         nav = findViewById(R.id.nav_view1);
         drawerLayouts = findViewById(R.id.newdrawer);
@@ -79,6 +92,24 @@ public class Championships extends AppCompatActivity {
                     case R.id.profile:
                         Intent intent2 = new Intent(Championships.this,profilepage.class);
                         startActivity(intent2);
+                        break;
+
+
+                    case R.id.logout:
+
+                        if(current_user_phone!=null){
+                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                            editor.clear();
+                            editor.commit();
+                            finish();
+                            Toast.makeText(getApplicationContext(),"Log out successfully!!",Toast.LENGTH_SHORT).show();
+                            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(i);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"You are not Logged In",Toast.LENGTH_SHORT).show();
+                        }
+
                         break;
 
                 }
