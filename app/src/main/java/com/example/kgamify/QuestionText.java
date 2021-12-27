@@ -97,6 +97,12 @@ public class QuestionText extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     private void getQuestionFromApi() {
 
 

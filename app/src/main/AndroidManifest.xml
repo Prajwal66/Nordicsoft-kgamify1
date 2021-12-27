@@ -52,6 +52,8 @@
             android:exported="true" />
         <activity android:name=".profilepage"
             android:exported="true"/>
+
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">

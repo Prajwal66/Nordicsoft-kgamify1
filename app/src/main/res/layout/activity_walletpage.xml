@@ -14,6 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+<!-- <<<<<<< HEAD
+======= -->
+
 
 
         <ImageView
@@ -90,6 +93,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="20dp" />
 
+>>>>>>> a4df6fd7fef1bc3a26412aeefb2d1a5eb10906a8
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

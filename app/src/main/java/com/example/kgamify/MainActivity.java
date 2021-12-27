@@ -108,6 +108,11 @@ public class MainActivity extends AppCompatActivity {
         postDataToApi();
 
 
+
+
+
+
+
         if (Localehelper.getLanguage(MainActivity.this).equalsIgnoreCase("en")) {
             context = Localehelper.setLocale(MainActivity.this, "en");
             resources = context.getResources();
@@ -271,8 +276,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String number=edtText_enter_phone_no.getText().toString();
+//<<<<<<< HEAD
+
+
+                int wallet_coins=0;
+//=======
                 wallet_coins=getAllUserInfo(number);
                 Toast.makeText(getApplicationContext(),"final Wall="+wallet_coins,Toast.LENGTH_SHORT).show();
+//>>>>>>> a4df6fd7fef1bc3a26412aeefb2d1a5eb10906a8
                 postData(number,ccp.getSelectedCountryCode().toString(),wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address);
 
 

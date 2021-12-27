@@ -175,7 +175,7 @@
             android:id="@+id/checkBox4"
             android:layout_width="354dp"
             android:layout_height="58dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="136dp"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="Cricket"
             android:textColor="@color/btn_orange"

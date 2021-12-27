@@ -63,6 +63,13 @@ public class CalculateResult extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CalculateResult.this,Categories.class);
+        startActivity(intent);
+
+    }
+
     private void getUserInfo() {
 
         api6=RetrofitInstance.getRetrofit().create(Api.class);

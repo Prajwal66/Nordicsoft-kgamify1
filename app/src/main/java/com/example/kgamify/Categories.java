@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Categories extends AppCompatActivity {
+
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -57,9 +59,31 @@ public class Categories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
 
-        //textView = findViewById(R.id.t1);
         drawers = findViewById(R.id.my_drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = headerView.findViewById(R.id.t1);
+
+        sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
+        String current_user_phone1=sharedPreferences.getString(key_phone,null);
+
+        navUsername.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(current_user_phone1 == null) {
+                    Intent intent = new Intent(Categories.this, MainActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Please sign in", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Already Signed",Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
 
         sharedPreferences=getSharedPreferences(shared_pref_name,MODE_PRIVATE);
         String current_user_phone=sharedPreferences.getString(key_phone,null);
@@ -112,12 +136,24 @@ public class Categories extends AppCompatActivity {
                 return true;
             }
         });
-
         initialize();
         getCategoriesFromApi();
         recycler_view_1.setLayoutManager(new LinearLayoutManager(this));
 
+    }
 
+    private void Test() {
+        Toast.makeText(getApplicationContext(),"testing",Toast.LENGTH_LONG).show();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(drawers.isDrawerOpen(GravityCompat.START)) {
+            drawers.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 
