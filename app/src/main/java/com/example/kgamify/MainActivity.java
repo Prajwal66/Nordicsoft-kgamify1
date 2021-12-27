@@ -220,43 +220,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private int getAllUserInfo(String number){
-        api8=RetrofitInstance.getRetrofit().create(Api.class);
-        Call<LoginsWrapper> loginsWrapperCall= api8.getCurrentUser();
-
-        loginsWrapperCall.enqueue(new Callback<LoginsWrapper>() {
-            @Override
-            public void onResponse(Call<LoginsWrapper> call, Response<LoginsWrapper> response) {
-                all_user_info=response.body().getLogins();
-
-                for(int i=0;i<all_user_info.size();i++)
-                {
-                    if(number.equals(all_user_info.get(i).getPhone())) {
-                        single_user_info = all_user_info.get(i);
-                        user_found=true;
-                        break;
-                    }
-                }
-                if(user_found==true){
-                    wallet_coins=single_user_info.getWallet_coins();
-                    Toast.makeText(getApplicationContext(),"if wall="+wallet_coins,Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    wallet_coins=0;
-                    Toast.makeText(getApplicationContext(),"else wall="+wallet_coins,Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-
-            @Override
-            public void onFailure(Call<LoginsWrapper> call, Throwable t) {
-
-            }
-        });
-        Toast.makeText(getApplicationContext(),"returning wall="+wallet_coins,Toast.LENGTH_SHORT).show();
-        return wallet_coins;
-    }
 
     private void postDataToApi() {
 
@@ -276,14 +239,10 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String number=edtText_enter_phone_no.getText().toString();
-//<<<<<<< HEAD
 
 
                 int wallet_coins=0;
-//=======
-                wallet_coins=getAllUserInfo(number);
-                Toast.makeText(getApplicationContext(),"final Wall="+wallet_coins,Toast.LENGTH_SHORT).show();
-//>>>>>>> a4df6fd7fef1bc3a26412aeefb2d1a5eb10906a8
+                
                 postData(number,ccp.getSelectedCountryCode().toString(),wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address);
 
 
