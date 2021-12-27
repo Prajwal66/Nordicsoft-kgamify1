@@ -192,12 +192,12 @@ public class Categories extends AppCompatActivity {
     private void initialize() {
         //card1
         category1 = findViewById(R.id.fixed_layout_champ);
-        tv_cat_name = (TextView) findViewById(R.id.tv_cat_name);
-        tv_champ_name = (TextView) findViewById(R.id.tv_champ_name);
-        tv_champ_start_time = (TextView) findViewById(R.id.tv_champ_start_time);
+        tv_cat_name =  findViewById(R.id.tv_cat_name);
+        tv_champ_name = findViewById(R.id.tv_champ_name);
+        tv_champ_start_time =  findViewById(R.id.tv_champ_start_time);
 
-        recycler_view_1 = (RecyclerView) findViewById(R.id.recycler_view_1);
-        profile = (ImageView) findViewById(R.id.clickHere);
+        recycler_view_1 =  findViewById(R.id.recycler_view_1);
+        profile =  findViewById(R.id.clickHere);
 
 
     }

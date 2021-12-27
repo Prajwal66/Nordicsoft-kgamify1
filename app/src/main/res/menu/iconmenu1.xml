@@ -3,7 +3,7 @@
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_profile"
-        android:title="go to profile!" />
+        android:title="Go to profile!" />
     <item
         android:id="@+id/menu_categories"
         android:icon="@drawable/nav_cato"
