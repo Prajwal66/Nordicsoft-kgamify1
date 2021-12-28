@@ -61,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Api Integration Variables
     CompositeDisposable compositeDisposable = new CompositeDisposable();
-    Api api,api8;
+    Api api8;
     List<Logins> all_user_info;
-    Logins single_user_info;
 
 
 
@@ -102,8 +101,9 @@ public class MainActivity extends AppCompatActivity {
         initializeView();
         listeners();
         move();
+        getAllUserCoinsInfo();
         getLocationInfo();
-       // setPhoneNumber();
+        // setPhoneNumber();
         setLanguage(language);
         postDataToApi();
 
@@ -177,6 +177,39 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void getCurrentUser(String number) {
+
+        for(int i=0;i<all_user_info.size();i++)
+        {
+            if(number.equals(all_user_info.get(i).getPhone())) {
+                wallet_coins=all_user_info.get(i).getWallet_coins();
+                break;
+            }
+            else {
+                wallet_coins=0;
+            }
+        }
+    }
+
+    private void getAllUserCoinsInfo() {
+
+        api8 = RetrofitInstance.getRetrofit().create(Api.class);
+        Call<LoginsWrapper> loginsWrapperCall= api8.getCurrentUser();
+
+        loginsWrapperCall.enqueue(new Callback<LoginsWrapper>() {
+            @Override
+            public void onResponse(Call<LoginsWrapper> call, Response<LoginsWrapper> response) {
+                all_user_info=response.body().getLogins();
+            }
+
+            @Override
+            public void onFailure(Call<LoginsWrapper> call, Throwable t) {
+
+            }
+        });
+
+    }
+
     private void getLocationInfo() {
         if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             showLocation();
@@ -220,12 +253,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     private void postDataToApi() {
-
-        Retrofit retrofit=RetrofitInstance.getRetrofit();
-        api= retrofit.create(Api.class);
-
 
         btn_send_otp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,16 +264,9 @@ public class MainActivity extends AppCompatActivity {
 
                     return;
                 }
-
-
                 String number=edtText_enter_phone_no.getText().toString();
 
-
-                int wallet_coins=0;
-                
-                postData(number,ccp.getSelectedCountryCode().toString(),wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address);
-
-
+                getCurrentUser(number);
 
                 SharedPreferences.Editor editor=sharedPreferences.edit();
                 editor.putString(key_phone,edtText_enter_phone_no.getText().toString());
@@ -255,28 +276,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent i=new Intent(MainActivity.this,OTP_verification.class);
                 i.putExtra("mobile",edtText_enter_phone_no.getText().toString());
                 i.putExtra("countryCode",ccp.getSelectedCountryCode().toString());
+                i.putExtra("wallet_coins",wallet_coins);
+                i.putExtra("location_latitude",location_latitude);
+                i.putExtra("location_longitude",location_longitude);
+                i.putExtra("location_country",location_country);
+                i.putExtra("location_locality",location_locality);
+                i.putExtra("location_address",location_address);
+
                 startActivity(i);
             }
         });
 
     }
 
-    public void postData(String phone2,String country2,int wallet_coins2,Double location_latitude2,Double location_longitude2,String location_country2,String location_locality2,String location_address2) {
-        Logins logins = new Logins(phone2, country2,wallet_coins2,location_latitude2,location_longitude2,location_country2,location_locality2,location_address2);
-
-        Call<Logins> loginsCall= api.loginUser(new Logins(phone2, country2,wallet_coins2,location_latitude2,location_longitude2,location_country2,location_locality2,location_address2));
-        loginsCall.enqueue(new Callback<Logins>() {
-            @Override
-            public void onResponse(Call<Logins> call, Response<Logins> response) {
-                System.out.println(response);
-            }
-
-            @Override
-            public void onFailure(Call<Logins> call, Throwable t) {
-
-            }
-        });
-    }
 
     @Override
     protected void onStop() {
