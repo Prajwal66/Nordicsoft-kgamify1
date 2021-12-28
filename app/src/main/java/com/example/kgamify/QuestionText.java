@@ -1115,7 +1115,7 @@ public class QuestionText extends AppCompatActivity {
 
                     Intent intent =new Intent(QuestionText.this,CalculateResult.class);
                     intent.putExtra("from_page","quit_page");
-                    intent.putExtra("bonus_coins",bonus_coins);
+                    intent.putExtra("coins_earned",coins_earned);
                     intent.putExtra("num_of_true",num_of_true);
                     intent.putExtra("total_que",list_results.size());
                     startActivity(intent);
