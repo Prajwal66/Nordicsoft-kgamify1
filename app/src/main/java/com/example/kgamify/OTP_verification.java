@@ -25,6 +25,11 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class OTP_verification extends AppCompatActivity {
 
     private TextView txtView_verification_code,txtView_msg,txtView_phone_no,txtView_timer,txtView_resend_otp;
@@ -36,6 +41,13 @@ public class OTP_verification extends AppCompatActivity {
     Context context;
     Resources resources;
     CountDownTimer countDownTimer;
+
+    Api api;
+
+    String mobile,countryCode,location_country,location_locality,location_address;
+    int wallet_coins;
+    double location_latitude,location_longitude;
+
 
 
     @Override
@@ -54,8 +66,17 @@ public class OTP_verification extends AppCompatActivity {
         numberotpMove();
 
 
-        if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("en"))
-        {
+        mobile=getIntent().getStringExtra("mobile");
+        countryCode=getIntent().getStringExtra("countryCode");
+        wallet_coins=getIntent().getIntExtra("wallet_coins",0);
+        location_latitude=getIntent().getDoubleExtra("location_latitude",0);
+        location_longitude=getIntent().getDoubleExtra("location_longitude",0);
+        location_country=getIntent().getStringExtra("location_country");
+        location_locality=getIntent().getStringExtra("location_locality");
+        location_address=getIntent().getStringExtra("location_address");
+
+
+        if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("en")) {
             context=Localehelper.setLocale(getApplicationContext(),"en");
             resources=context.getResources();
 
@@ -68,8 +89,7 @@ public class OTP_verification extends AppCompatActivity {
 
 
         }
-        else if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("es"))
-        {
+        else if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("es")) {
             context=Localehelper.setLocale(getApplicationContext(),"es");
             resources=context.getResources();
 
@@ -81,8 +101,7 @@ public class OTP_verification extends AppCompatActivity {
             txtView_resend_otp.setText(resources.getString(R.string.resend_otp));
 
         }
-        else if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("fr"))
-        {
+        else if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("fr")) {
             context=Localehelper.setLocale(getApplicationContext(),"fr");
             resources=context.getResources();
 
@@ -94,8 +113,7 @@ public class OTP_verification extends AppCompatActivity {
             txtView_resend_otp.setText(resources.getString(R.string.resend_otp));
 
         }
-        else if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("ko"))
-        {
+        else if(Localehelper.getLanguage(getApplicationContext()).equalsIgnoreCase("ko")) {
             context=Localehelper.setLocale(getApplicationContext(),"ko");
             resources=context.getResources();
 
@@ -107,8 +125,7 @@ public class OTP_verification extends AppCompatActivity {
             txtView_resend_otp.setText(resources.getString(R.string.resend_otp));
 
         }
-        else
-        {
+        else {
             context=Localehelper.setLocale(getApplicationContext(),"hi");
             resources=context.getResources();
 
@@ -148,6 +165,9 @@ public class OTP_verification extends AppCompatActivity {
                 if(!input_otp_1.getText().toString().trim().isEmpty() && !input_otp_2.getText().toString().trim().isEmpty() && !input_otp_3.getText().toString().trim().isEmpty() && !input_otp_4.getText().toString().trim().isEmpty())
                 {
                     countDownTimer.cancel();
+
+                    postDataToApi();
+
                     Intent i=new Intent(OTP_verification.this,Categories.class);
                     startActivity(i);
                 }
@@ -162,6 +182,27 @@ public class OTP_verification extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(OTP_verification.this,"OTP resent to provided mobile number",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void postDataToApi(){
+
+        Retrofit retrofit=RetrofitInstance.getRetrofit();
+        api= retrofit.create(Api.class);
+
+        Logins logins = new Logins(mobile, countryCode,wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address);
+
+        Call<Logins> loginsCall= api.loginUser(new Logins(mobile, countryCode,wallet_coins,location_latitude,location_longitude,location_country,location_locality,location_address));
+        loginsCall.enqueue(new Callback<Logins>() {
+            @Override
+            public void onResponse(Call<Logins> call, Response<Logins> response) {
+                System.out.println(response);
+            }
+
+            @Override
+            public void onFailure(Call<Logins> call, Throwable t) {
+
             }
         });
     }

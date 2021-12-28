@@ -1111,12 +1111,24 @@ public class QuestionText extends AppCompatActivity {
 
                 countDownTimer.cancel();
 
-                Intent intent =new Intent(QuestionText.this,CalculateResult.class);
-                intent.putExtra("from_page","quit_page");
-                intent.putExtra("bonus_coins",bonus_coins);
-                intent.putExtra("num_of_true",num_of_true);
-                intent.putExtra("total_que",list_results.size());
-                startActivity(intent);
+                if(current_user_phone!=null){
+
+                    Intent intent =new Intent(QuestionText.this,CalculateResult.class);
+                    intent.putExtra("from_page","quit_page");
+                    intent.putExtra("bonus_coins",bonus_coins);
+                    intent.putExtra("num_of_true",num_of_true);
+                    intent.putExtra("total_que",list_results.size());
+                    startActivity(intent);
+                }
+                else{
+
+                    Toast.makeText(getApplicationContext(),"Please sign in first to play championships",Toast.LENGTH_LONG).show();
+                    Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(i);
+
+                }
+
+
 
             }
         });

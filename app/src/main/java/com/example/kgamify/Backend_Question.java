@@ -17,7 +17,7 @@ public class Backend_Question {
     @Expose
     private String questionID;
 
-    @SerializedName("wrong question")
+    @SerializedName("wrong_question")
     @Expose
     private int wrong_que;
 
